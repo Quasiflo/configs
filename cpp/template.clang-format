@@ -1,0 +1,9 @@
+---
+Language: Cpp
+BasedOnStyle: Google
+
+ColumnLimit: 0
+IndentWidth: 2
+UseTab: Never
+SortIncludes: true
+IncludeBlocks: Regroup

@@ -1,0 +1,6 @@
+{
+    //! Language & Plugin
+    "[toml]": {
+        "editor.defaultFormatter": "tombi-toml.tombi"
+    }
+}

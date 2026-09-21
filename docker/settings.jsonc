@@ -1,0 +1,11 @@
+{
+    //! Language & Plugin
+    "[dockercompose]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "hadolint.cliOptions": [
+        "--config",
+        "./.config/generated/.hadolint.yaml",
+        "--no-color"
+    ]
+}

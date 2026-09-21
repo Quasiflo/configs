@@ -1,0 +1,8 @@
+{
+    //! Language & Plugin
+    "htmlhint.optionsFile": ".config/generated/.htmlhintrc",
+    //! Editor Behavior
+    "files.associations": {
+        ".htmlhintrc": "json"
+    }
+}

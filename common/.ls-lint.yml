@@ -1,0 +1,84 @@
+---
+#* General Conventions:
+# snake_case for language files
+# kebab-case for config files
+# PascalCase for documentation files
+
+ls:
+  # Rust
+  .rs: snake_case
+  .rs.bk: snake_case
+  Cargo.toml: PascalCase
+
+  # Dart
+  .dart: snake_case
+
+  # Python
+  .py: snake_case
+
+  # Javascript & Typescript
+  .js: snake_case
+  .jsx: snake_case
+  .ts: kebab-case
+  .tsx: kebab-case
+
+  # C family
+  .c: snake_case
+  .cpp: snake_case
+  .h: snake_case
+  .hpp: snake_case
+  .tpp: snake_case
+  .inc: snake_case
+  .cc: snake_case
+  .cxx: snake_case
+  .hh: snake_case
+
+  # Go
+  .go: snake_case
+
+  # Shell
+  .bash: snake_case
+  .sh: snake_case
+
+  # Pkl
+  .pkl: snake_case
+
+  # Config & data files
+  .yml: kebab-case
+  .yaml: kebab-case | regex:^Pulumi(\.[a-zA-Z0-9_-]+)?$
+  .json: kebab-case
+  .json5: kebab-case
+  .jsonc: kebab-case
+  .toml: kebab-case
+  .txt: lowercase
+  .lock: lowercase
+  .dockerignore: lowercase
+  .gitignore: lowercase
+  .gitattributes: lowercase
+  .npmignore: lowercase
+
+  # Documentation
+  .md: kebab-case | SCREAMING_SNAKE_CASE
+
+  # Directories
+  "*":
+    .dir: snake_case | lowercase
+  src/*:
+    .dir: snake_case
+  tasks/*:
+    .dir: snake_case
+  docs/*:
+    .dir: snake_case | SCREAMING_SNAKE_CASE
+
+ignore:
+  - .git/**/*
+  - "**/node_modules/**/*"
+  - "**/target/**/*"
+  - build/**/*
+  - "**/.dart_tool/**/*"
+  - "**/.pkl-lsp/**/*"
+  - "**/*.lock"
+  - .config/generated/**/*
+  - "**/bazel-*"
+  - "**/Cargo.toml"
+  - "**/.ort-data/**/*"

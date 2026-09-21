@@ -1,0 +1,34 @@
+{
+    //! Language & Plugin
+    "C_Cpp.autocomplete": "disabled", // Use clangd instead
+    "C_Cpp.intelliSenseEngine": "disabled", // Use clangd instead
+    // "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--query-driver=**"
+        //     "--compile-commands-dir=${workspaceFolder}/",
+    ],
+    "mise.customBinaryExtensions": [
+        {
+            "extensionId": "llvm-vs-code-extensions.vscode-clangd",
+            "toolSources": [
+                "buildit:clang"
+            ],
+            "supportsShims": true,
+            "supportsSymlinks": true,
+            "vscodeSetting": {
+                "key": "clangd.path"
+            },
+            "binName": "clangd"
+        }
+    ],
+    //! Editor Behavior
+    "files.associations": {
+        "*.inc": "cpp",
+        "*.ipp": "cpp",
+        "*.tcc": "cpp",
+        ".clangd": "yaml",
+        "template.clang-format": "yaml",
+        "template.clang-tidy": "yaml"
+    }
+}

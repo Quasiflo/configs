@@ -1,0 +1,37 @@
+#! Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+#! Gradle
+.gradle/
+# Ignore Gradle GUI config
+gradle-app.setting
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+# Avoid ignore Gradle wrapper properties
+!gradle-wrapper.properties
+# Cache of project
+.gradletasknamecache
+
+#! Android
+# Local configuration file (sdk path, etc)
+local.properties
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+output-metadata.json
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+# Android Profiling
+*.hprof
+
+#! Keystore
+*.jks
+*.keystore
+
+#! Debugging
+*.dSYM/
+*.dSYM.zip

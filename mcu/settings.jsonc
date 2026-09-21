@@ -1,0 +1,10 @@
+{
+    //! Editor Behavior
+    "workbench.editorAssociations": {
+        "*.hex": "hexEditor.hexedit"
+    },
+    //! Ignored Values
+    "files.exclude": {
+        "**/.pio": true
+    }
+}

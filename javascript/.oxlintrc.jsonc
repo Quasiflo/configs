@@ -1,0 +1,43 @@
+{
+  "categories": {},
+  "env": {
+    "builtin": true
+  },
+  "globals": {},
+  "ignorePatterns": [],
+  "options": {
+    "typeAware": true,
+    "typeCheck": true
+  },
+  // "plugins": null,
+  "rules": {},
+  "settings": {
+    "jsdoc": {
+      "augmentsExtendsReplacesDocs": false,
+      "exemptDestructuredRootsFromChecks": false,
+      "ignoreInternal": false,
+      "ignorePrivate": false,
+      "ignoreReplacesDocs": true,
+      "implementsReplacesDocs": false,
+      "overrideReplacesDocs": true,
+      "tagNamePreference": {}
+    },
+    "jsx-a11y": {
+      "attributes": {},
+      "components": {},
+      // "polymorphicPropName": null
+    },
+    "next": {
+      "rootDir": []
+    },
+    "react": {
+      "componentWrapperFunctions": [],
+      "formComponents": [],
+      "linkComponents": [],
+      // "version": null
+    },
+    "vitest": {
+      "typecheck": false
+    }
+  }
+}

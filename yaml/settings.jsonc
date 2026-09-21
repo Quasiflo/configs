@@ -1,0 +1,7 @@
+{
+    //! Editor Behavior
+    "files.associations": {
+        ".yamlfmt": "yaml",
+        ".yamllint": "yaml"
+    }
+}

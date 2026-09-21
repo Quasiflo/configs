@@ -1,0 +1,69 @@
+{
+    //! Editor Behavior
+    "debug.internalConsoleOptions": "openOnSessionStart", // Switch to debug window on every debug session ie to see flutter output
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.associations": {
+        "LICENSE": "txt",
+        "CODEOWNERS": "txt"
+    },
+    //! Visuals
+    // These aren't split across ecosystems as you may want files folded even if all the linting/settings aren't enabled for it
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": ".npmrc,package-lock.json,yarn.lock,pnpm-lock.yaml,bun.lockb,bun.lock,aube-lock.yaml,aube-workspace.yaml,package.spdx.json",
+        "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata,analysis_options.yaml,dart_test.yaml,.pubignore,build.yaml",
+        "*.dart": "${capture}.g.dart",
+        "*.cs": "${capture}.designer.cs,${capture}.g.cs,${capture}.generated.cs,${capture}.run.json,${capture}.settings.json,${capture}.settings.*.json",
+        "*.csproj": "${capture}.csproj.user",
+        "*.json": "${capture}.Development.json",
+        "*.cshtml": "${capture}.cshtml.cs,${capture}.cshtml.css",
+        "*.razor": "${capture}.razor.cs,${capture}.razor.css",
+        "*.resx": "${capture}.Designer.cs",
+        "*.xaml": "${capture}.xaml.cs",
+        "Cargo.toml": "Cargo.lock,deny.toml,rust-toolchain.toml",
+        ".gitignore": ".gitattributes,template.gitignore,template.gitattributes,template.clang-tidy,.clang-tidy,template.clang-format,.clang-format,.swift-version",
+        "mise.toml": "mise*.toml,mise*.lock,*miserc.toml",
+        "pitchfork.toml": "pitchfork*.toml",
+        "README.md": "REPOSITORY.md,ARCHITECTURE.md,TODO,TODO.md,CONTRIBUTING,CONTRIBUTING.md,CHANGELOG,CHANGELOG.md,AGENTS.md,LICENSE,LICENSE.txt,ROADMAP.md",
+        "firebase.json": ".firebaserc,storage.rules,cors.json",
+        "MODULE.bazel": "MODULE.bazel.lock,*.bazelrc,.bazelversion,.bazelignore",
+        "pyproject.toml": ".python-version, uv.lock",
+        "rp-config.json": "rp-manifest.json",
+        "PklProject": "PklProject.deps.json",
+        "Pulumi.yaml": "Pulumi.*.yaml"
+    },
+    //* Mise
+    "mise.checkForNewMiseVersion": false,
+    "mise.configureExtensionsAutomatically": true,
+    "mise.configureExtensionsUseSymLinks": false,
+    "mise.configureExtensionsIncludeGlobalTools": false,
+    "mise.showCustomExtensionConfigWarnings": false,
+    "mise.configureExtensionsAutomaticallyIgnoreList": [], // Enables oxc.path settings getting set
+    //! Language & Plugin
+    // "cSpell.spellCheckOnlyWorkspaceFiles": true,
+    // "cSpell.diagnosticLevel": "Hint",
+    // "cSpell.autocorrect": true,
+    // "cSpell.import": [
+    //     "${workspaceFolder}/.config/generated/cspell.yml"
+    // ], // TODO enable once reviewed
+    "[markdown]": {
+        "editor.defaultFormatter": "rvben.rumdl"
+    },
+    "rumdl.configPath": ".config/generated/rumdl.toml",
+    "rumdl.lint.run": "onSave",
+    //! Ignored Values
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/.cache": true,
+        "**/Thumbs.db": true
+    }
+}

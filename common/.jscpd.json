@@ -1,0 +1,5 @@
+{
+  "ignore": [
+    "**/CHANGELOG.md"
+  ]
+}

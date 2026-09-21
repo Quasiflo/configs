@@ -1,0 +1,10 @@
+#! Go
+# Test binary, built with `go test -c`
+*.test
+# Code coverage profiles and other test artifacts
+coverage.*
+*.coverprofile
+profile.cov
+# Go workspace file
+go.work
+go.work.sum

@@ -1,0 +1,63 @@
+#! Macros
+# By default, set as binary. Can be overridden in template for lfs support
+[attr]lfs_maybe     binary
+
+#! Unity
+#* Unity source files
+*.cginc                     text
+*.compute                   text linguist-language=hlsl
+*.hlsl                      text linguist-language=hlsl
+*.raytrace                  text linguist-language=hlsl
+*.shader                    text
+#* Unity UI Toolkit files
+*.tss                       text diff=css linguist-language=css
+*.uss                       text diff=css linguist-language=css
+*.uxml                      text linguist-language=xml linguist-detectable
+#* Unity JSON files
+*.asmdef                    text eol=lf linguist-language=json
+*.asmref                    text eol=lf linguist-language=json
+*.index                     text eol=lf linguist-language=json
+*.inputactions              text eol=lf linguist-language=json
+*.shadergraph               text eol=lf linguist-language=json
+*.shadersubgraph            text eol=lf linguist-language=json
+#* Unity YAML files
+*.anim                      text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.asset                     text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.brush                     text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.controller                text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.flare                     text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.fontsettings              text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.giparams                  text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.guiskin                   text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.lighting                  text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.mask                      text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.mat                       text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.meta                      text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.mixer                     text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.overrideController        text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.playable                  text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.prefab                    text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.preset                    text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.renderTexture             text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.scenetemplate             text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.shadervariants            text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.signal                    text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.spriteatlas               text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.spriteatlasv2             text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.terrainlayer              text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.unity                     text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.physicMaterial            text merge=unityyamlmerge eol=lf linguist-language=yaml
+*.physicsMaterial2D         text merge=unityyamlmerge eol=lf linguist-language=yaml
+#* Unity LFS
+*.cubemap                   lfs_maybe
+*.unitypackage              lfs_maybe
+#* ETC
+*.reason                    lfs_maybe
+*.rns                       lfs_maybe
+#* Spine export file for Unity
+*.skel.bytes                lfs_maybe
+#* Exceptions for .asset files such as lightning pre-baking
+LightingData.asset          lfs_maybe
+#* Exclude from GitHub stats and diffs: third-party plugins, packages lock file
+Assets/Plugins/**           linguist-generated
+Packages/packages-lock.json linguist-generated

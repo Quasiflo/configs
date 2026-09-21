@@ -1,0 +1,128 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customDatasources": {
+    "flutter": {
+      "defaultRegistryUrlTemplate": "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json",
+      "transformTemplates": [
+        "{ \"releases\": $map(releases[channel = \"stable\"], function($r) { { \"version\": $replace($r.version, \"-stable\", \"\") } }) }"
+      ]
+    },
+    "dart": {
+      "defaultRegistryUrlTemplate": "https://storage.googleapis.com/storage/v1/b/dart-archive/o?prefix=channels/stable/release/&delimiter=/",
+      "transformTemplates": [
+        "{ \"releases\": $map($filter(prefixes, function($p) { $contains($substringBefore($substringAfter($p, \"channels/stable/release/\"), \"/\"), \".\") }), function($p) { { \"version\": $substringBefore($substringAfter($p, \"channels/stable/release/\"), \"/\") } }), \"sourceUrl\": \"https://github.com/dart-lang/sdk\", \"homepage\": \"https://dart.dev\", \"changelogUrl\": \"https://github.com/dart-lang/sdk/blob/main/CHANGELOG.md\" }"
+      ]
+    }
+  },
+  "customManagers": [
+    { // Update renovate templates (ie this one) that gets extended by clients
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "description": "Update any renovate github extends version tag",
+      "extractVersionTemplate": "^{{{ depName }}}-v?(?<version>.+)$",
+      "managerFilePatterns": [
+        "**/renovate.json5"
+      ],
+      "matchStrings": [
+        ">(?<packageName>[^/]+/[^/]+)//[^#(\\s]+(?:#(?<depName>[a-zA-Z][a-zA-Z0-9-]*?)-v(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+[^\"'\\s(]*))?(?:\\([^)]+\\))?"
+      ],
+      "packageNameTemplate": "{{{ packageName }}}",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "jsonata",
+      "fileFormat": "toml",
+      "managerFilePatterns": [
+        "**/mise.toml",
+        "**/mise.*.toml"
+      ],
+      "matchStrings": [
+        "$each(tools ?? {}, function($tool, $name) { $substringBefore($name, \":\") = \"http\" ? { \"depName\": $substringAfter($name, \"http:\"), \"currentValue\": $tool.version, \"datasource\": \"custom.\" & $substringAfter($name, \"http:\") } : undefined })"
+      ]
+    },
+    { // Update tools defined in mise using tool_alias
+      "customType": "jsonata",
+      "fileFormat": "toml",
+      "managerFilePatterns": [
+        "**/mise.toml",
+        "**/mise.*.toml"
+      ],
+      "matchStrings": [
+        "$each(tool_alias ?? {}, function($aliasTarget, $name) { { \"depName\": $name, \"packageName\": $substringAfter($aliasTarget, \"github:\"), \"currentValue\": $lookup(tools, $name).version, \"extractVersion\": \"^\" & $lookup(tools, $name).version_prefix & \"(?<version>.+)$\", \"datasource\": \"github-releases\" } })"
+      ]
+    },
+  ],
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "extends": [
+    "config:best-practices",
+    ":semanticCommits",
+    "mergeConfidence:all-badges",
+    ":disableRateLimiting",
+    ":enableVulnerabilityAlertsWithAdditionalLabel(security)"
+  ],
+  "hostRules": [
+    {
+      "matchHost": "circleci.com",
+      "authType": "Token-Only",
+      "token": "{{ secrets.CIRCLECI_TOKEN }}"
+    }
+  ],
+  "internalChecksFilter": "strict",
+  "labels": [
+    "Chore 🧹"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [] // Run whenever renovate executes
+  },
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "groupName": "{{manager}} Dependencies", // Group deps by manager
+      "matchManagers": [
+        "*"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch",
+        "pin",
+        "pinDigest",
+        "digest",
+        "bump",
+        "replacement"
+      ],
+      "minimumReleaseAge": "4 days"
+    },
+    {
+      "matchSourceUrls": ["https://github.com/Quasiflo/**"],
+      "minimumReleaseAge": 0
+    },
+    {
+      "groupName": "FRB Dependencies", // Ensure all flutter_rust_bridge deps maintain identical version
+      "matchDepNames": [
+        "flutter_rust_bridge",
+        "flutter_rust_bridge_hooks",
+        "flutter_rust_bridge_codegen",
+        "cargo:flutter_rust_bridge_codegen"
+      ]
+    },
+    {
+      "groupName": "Mise Dependencies",
+      "matchManagers": [
+        "mise"
+      ],
+      "versioning": "semver-partial"
+    },
+    {
+      "extractVersion": "^lychee-v?(?<version>.+)$",
+      "matchPackageNames": [
+        "lycheeverse/lychee"
+      ]
+    }
+  ],
+  "prCreation": "immediate",
+  "rebaseWhen": "behind-base-branch"
+}

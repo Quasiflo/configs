@@ -1,0 +1,475 @@
+[default]
+include_labels = ["common", "documentation"]
+
+#! Abstractions
+[abstract.gitignore]
+    generated_dir = "."
+    generated_file = ".gitignore"
+    override_dir = "."
+    override_file = "template.gitignore"
+    strategy = "append_bottom"
+
+[abstract.gitattributes]
+    generated_dir = "."
+    generated_file = ".gitattributes"
+    override_dir = "."
+    override_file = "template.gitattributes"
+    strategy = "append_bottom"
+
+[abstract.vscode-settings]
+    generated_dir = ".vscode/"
+    generated_file = "settings.json"
+    override_dir = ".vscode/"
+    override_file = "settings.template.json"
+    local_override_file = "settings.local.json"
+    back_propagate = true
+    backprop_ignore = [
+        "explorerExcludeManager.backup", 
+        "clangd.path", 
+        "cmake.cmakePath",
+        "python.defaultInterpreterPath",
+        "shellcheck.executablePath",
+        "java.jdt.ls.java.home",
+        "java.import.gradle.java.home",
+        "ruff.interpreter",
+        "ruff.path",
+        "dart.flutterSdkPath",
+        "debug.javascript.defaultRuntimeExecutable",
+        "pkl.cli.path",
+        "pkl.lsp.java.path",
+        "oxc.path.node",
+        "oxc.path.oxlint",
+        "oxc.path.oxfmt",
+        "hadolint.hadolintPath",
+        "sonarlint.ls.javaHome",
+        "sonarlint.pathToNodeExecutable",
+        "ty.path",
+        "tombi.path",
+        "shellformat.path",
+        "Lua.misc.executablePath",
+        "dotnetAcquisitionExtension.sharedExistingDotnetPath",
+        "lldb-dap.executable-path",
+        "go.goroot",
+        "go.alternateTools",
+        "swift.path",
+    ]
+    backprop_ignore_values = ["files.exclude.*"]
+    strategy = "merge_json"
+
+[abstract.vscode-extensions]
+    generated_dir = ".vscode/"
+    generated_file = "extensions.json"
+    override_dir = ".vscode/"
+    override_file = "extensions.template.json"
+    strategy = "merge_json"
+
+#! Templates
+[templates.rumdl]
+    template = "documentation/rumdl.toml"
+    strategy = "merge_toml"
+    labels = [ "documentation" ]
+
+[templates.lychee]
+    template = "documentation/lychee.toml"
+    strategy = "merge_toml"
+    labels = [ "documentation" ]
+
+[templates.cspell]
+    template = "documentation/cspell.yml"
+    strategy = "merge_yaml"
+    # labels = [ "documentation" ] # TODO enable once reviewed
+
+[templates.license-apache]
+    template = "license/LICENSE-APACHE"
+    generated_dir = "." # License must be at project root
+    strategy = "none"
+    labels = [ "license" ]
+
+[templates.license-notice-apache]
+    template = "license/license-notice-apache.md" # HK checks the context of this is in the README
+    strategy = "none"
+    labels = [ "license" ]
+
+[templates.jscpd]
+    template = "common/.jscpd.json"
+    strategy = "merge_json"
+    labels = [ "common" ]
+
+[templates.kingfisher]
+    template = "common/kingfisher.yaml"
+    strategy = "merge_yaml"
+    labels = [ "common" ]
+
+[templates.ls-lint]
+    template = "common/.ls-lint.yml"
+    strategy = "merge_yaml"
+    labels = [ "common" ]
+
+[templates.mise-backend-lint]
+    template = "common/mise-backend-lint.sh"
+    strategy = "none"
+    labels = [ "common" ]
+
+[templates.stylua]
+    template = "lua/stylua.toml"
+    strategy = "merge_toml"
+    labels = [ "lua" ]
+
+[templates.stylelint]
+    template = "web/.stylelintrc.json"
+    strategy = "merge_json"
+    labels = [ "web" ]
+
+[templates.htmlhint]
+    template = "web/.htmlhintrc"
+    strategy = "merge_json"
+    labels = [ "web" ]
+
+[templates.yamlfmt]
+    template = "yaml/.yamlfmt"
+    strategy = "merge_yaml"
+    labels = [ "yaml" ]
+
+[templates.yamllint]
+    template = "yaml/.yamllint"
+    strategy = "merge_yaml"
+    labels = [ "yaml" ]
+
+[templates.hadolint]
+    template = "docker/.hadolint.yaml"
+    strategy = "merge_yaml"
+    labels = [ "docker" ]
+
+[templates.oxfmt]
+    template = "javascript/.oxfmtrc.jsonc"
+    strategy = "merge_json"
+    labels = [ "javascript" ]
+
+[templates.oxlint]
+    template = "javascript/.oxlintrc.jsonc"
+    strategy = "merge_json"
+    labels = [ "javascript" ]
+
+[templates.detekt]
+    template = "kotlin/detekt.yml"
+    strategy = "merge_yaml"
+    labels = [ "kotlin" ]
+
+[templates.clang-format]
+    template = "cpp/template.clang-format"
+    generated_file = ".clang-format"
+    generated_dir = "." # Must be at root for clangd to find
+    override_dir = "."
+    strategy = "merge_yaml"
+    labels = [ "cpp" ]
+
+[templates.clang-tidy]
+    template = "cpp/template.clang-tidy"
+    generated_file = ".clang-tidy"
+    generated_dir = "." # Must be at root for clangd to find
+    override_dir = "."
+    strategy = "merge_yaml"
+    labels = [ "cpp" ]
+
+[templates.shell-strict-lint]
+    template = "shell/check-strict-lint.sh"
+    strategy = "none"
+    labels = [ "shell" ]
+
+#! VSCode
+[templates.vscode-settings-common]
+    template = "common/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "common" ]
+
+[templates.vscode-settings-cpp]
+    template = "cpp/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "cpp" ]
+
+[templates.vscode-settings-dart]
+    template = "dart/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "dart" ]
+
+[templates.vscode-settings-docker]
+    template = "docker/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "docker" ]
+
+[templates.vscode-settings-documentation]
+    template = "documentation/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "documentation" ]
+
+[templates.vscode-settings-java]
+    template = "java/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "java" ]
+
+[templates.vscode-settings-javascript]
+    template = "javascript/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "javascript" ]
+
+[templates.vscode-settings-json]
+    template = "json/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "json" ]
+
+[templates.vscode-settings-llvm]
+    template = "llvm/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "llvm" ]
+
+[templates.vscode-settings-mcu]
+    template = "mcu/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "mcu" ]
+
+[templates.vscode-settings-pkl]
+    template = "pkl/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "pkl" ]
+
+[templates.vscode-settings-python]
+    template = "python/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "python" ]
+
+[templates.vscode-settings-shell]
+    template = "shell/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "shell" ]
+
+[templates.vscode-settings-toml]
+    template = "toml/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "toml" ]
+
+[templates.vscode-settings-web]
+    template = "web/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "web" ]
+
+[templates.vscode-settings-yaml]
+    template = "yaml/settings.jsonc"
+    extends = "vscode-settings"
+    labels = [ "yaml" ]
+
+#! VSCode extensions (shared destination: .vscode/extensions.json)
+[templates.vscode-extensions-common]
+    template = "common/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "common" ]
+
+[templates.vscode-extensions-cpp]
+    template = "cpp/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "cpp" ]
+
+[templates.vscode-extensions-dart]
+    template = "dart/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "dart" ]
+
+[templates.vscode-extensions-docker]
+    template = "docker/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "docker" ]
+
+[templates.vscode-extensions-documentation]
+    template = "documentation/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "documentation" ]
+
+[templates.vscode-extensions-go]
+    template = "go/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "go" ]
+
+[templates.vscode-extensions-godot]
+    template = "godot/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "godot" ]
+
+[templates.vscode-extensions-java]
+    template = "java/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "java" ]
+
+[templates.vscode-extensions-javascript]
+    template = "javascript/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "javascript" ]
+
+[templates.vscode-extensions-json]
+    template = "json/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "json" ]
+
+[templates.vscode-extensions-jupyter]
+    template = "jupyter/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "jupyter" ]
+
+[templates.vscode-extensions-kotlin]
+    template = "kotlin/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "kotlin" ]
+
+[templates.vscode-extensions-llvm]
+    template = "llvm/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "llvm" ]
+
+[templates.vscode-extensions-lua]
+    template = "lua/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "lua" ]
+
+[templates.vscode-extensions-mcu]
+    template = "mcu/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "mcu" ]
+
+[templates.vscode-extensions-pkl]
+    template = "pkl/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "pkl" ]
+
+[templates.vscode-extensions-python]
+    template = "python/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "python" ]
+
+[templates.vscode-extensions-rust]
+    template = "rust/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "rust" ]
+
+[templates.vscode-extensions-shell]
+    template = "shell/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "shell" ]
+
+[templates.vscode-extensions-swift]
+    template = "swift/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "swift" ]
+
+[templates.vscode-extensions-toml]
+    template = "toml/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "toml" ]
+
+[templates.vscode-extensions-web]
+    template = "web/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "web" ]
+
+[templates.vscode-extensions-yaml]
+    template = "yaml/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "yaml" ]
+
+[templates.vscode-extensions-xml]
+    template = "xml/extensions.json"
+    extends = "vscode-extensions"
+    labels = [ "xml" ]
+
+#! Git
+[templates.gitattributes-common]
+    template = "common/template.gitattributes"
+    extends = "gitattributes"
+    labels = [ "common" ]
+
+[templates.gitattributes-unity]
+    template = "unity/template.gitattributes"
+    extends = "gitattributes"
+    labels = [ "unity" ]
+
+[templates.gitignore-common]
+    template = "common/template.gitignore"
+    extends = "gitignore"
+    labels = [ "common" ]
+
+[templates.gitignore-apps]
+    template = "apps/template.gitignore"
+    extends = "gitignore"
+    labels = [ "apps" ]
+
+[templates.gitignore-cpp]
+    template = "cpp/template.gitignore"
+    extends = "gitignore"
+    labels = [ "cpp" ]
+
+[templates.gitignore-dart]
+    template = "dart/template.gitignore"
+    extends = "gitignore"
+    labels = [ "dart" ]
+
+[templates.gitignore-documentation]
+    template = "documentation/template.gitignore"
+    extends = "gitignore"
+    labels = [ "documentation" ]
+
+[templates.gitignore-firebase]
+    template = "firebase/template.gitignore"
+    extends = "gitignore"
+    labels = [ "firebase" ]
+
+[templates.gitignore-go]
+    template = "go/template.gitignore"
+    extends = "gitignore"
+    labels = [ "go" ]
+
+[templates.gitignore-java]
+    template = "java/template.gitignore"
+    extends = "gitignore"
+    labels = [ "java" ]
+
+[templates.gitignore-javascript]
+    template = "javascript/template.gitignore"
+    extends = "gitignore"
+    labels = [ "javascript" ]
+
+[templates.gitignore-jupyter]
+    template = "jupyter/template.gitignore"
+    extends = "gitignore"
+    labels = [ "jupyter" ]
+
+[templates.gitignore-kotlin]
+    template = "kotlin/template.gitignore"
+    extends = "gitignore"
+    labels = [ "kotlin" ]
+
+[templates.gitignore-lua]
+    template = "lua/template.gitignore"
+    extends = "gitignore"
+    labels = [ "lua" ]
+
+[templates.gitignore-mcu]
+    template = "mcu/template.gitignore"
+    extends = "gitignore"
+    labels = [ "mcu" ]
+
+[templates.gitignore-pkl]
+    template = "pkl/template.gitignore"
+    extends = "gitignore"
+    labels = [ "pkl" ]
+
+[templates.gitignore-python]
+    template = "python/template.gitignore"
+    extends = "gitignore"
+    labels = [ "python" ]
+
+[templates.gitignore-rust]
+    template = "rust/template.gitignore"
+    extends = "gitignore"
+    labels = [ "rust" ]
+
+[templates.gitignore-swift]
+    template = "swift/template.gitignore"
+    extends = "gitignore"
+    labels = [ "swift" ]

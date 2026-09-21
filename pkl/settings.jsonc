@@ -1,0 +1,6 @@
+{
+    //! Ignored Values
+    "files.exclude": {
+        "**/.pkl-lsp": true
+    }
+}

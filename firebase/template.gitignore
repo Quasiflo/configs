@@ -1,0 +1,12 @@
+#! Firebase
+# Firebase build and deployment files
+/firebase-debug.log
+/firebase-debug.*.log
+# Firebase Hosting
+hosting/.cache/
+# Firebase Functions
+/functions/.env
+# Firebase Emulators
+/firebase-*.zip
+/.firebase/
+/emulator-ui/

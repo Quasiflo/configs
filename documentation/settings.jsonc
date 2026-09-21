@@ -1,0 +1,7 @@
+{
+    //! Ignored Values
+    "files.exclude": {
+        "**/.rumdl_cache": true,
+        "**/.lycheecache": true
+    }
+}

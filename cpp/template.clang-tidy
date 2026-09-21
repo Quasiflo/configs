@@ -1,0 +1,220 @@
+---
+Checks: >
+  bugprone-argument-comment, bugprone-assert-side-effect, bugprone-assignment-in-if-condition, bugprone-assignment-in-selection-statement, bugprone-bad-signal-to-kill-thread, bugprone-bitwise-pointer-cast, bugprone-bool-pointer-implicit-conversion, bugprone-branch-clone, bugprone-capturing-this-in-member-variable, bugprone-casting-through-void, bugprone-chained-comparison, bugprone-command-processor, bugprone-compare-pointer-to-member-virtual-function, bugprone-copy-constructor-init, bugprone-copy-constructor-mutates-argument, bugprone-crtp-constructor-accessibility, bugprone-dangling-handle, bugprone-default-operator-new-on-overaligned-type, bugprone-derived-method-shadowing-base-method, bugprone-dynamic-static-initializers, bugprone-easily-swappable-parameters, bugprone-empty-catch, bugprone-exception-copy-constructor-throws, bugprone-exception-escape, bugprone-float-loop-counter, bugprone-fold-init-type, bugprone-forward-declaration-namespace, bugprone-forwarding-reference-overload, bugprone-implicit-widening-of-multiplication-result, bugprone-inaccurate-erase, bugprone-inc-dec-in-conditions, bugprone-incorrect-enable-if, bugprone-incorrect-enable-shared-from-this, bugprone-incorrect-roundings, bugprone-infinite-loop, bugprone-integer-division, bugprone-invalid-enum-default-initialization, bugprone-lambda-function-name, bugprone-macro-parentheses, bugprone-macro-repeated-side-effects, bugprone-misleading-setter-of-reference, bugprone-misplaced-operator-in-strlen-in-alloc, bugprone-misplaced-pointer-arithmetic-in-alloc, bugprone-misplaced-widening-cast, bugprone-missing-end-comparison, bugprone-move-forwarding-reference, bugprone-multi-level-implicit-pointer-conversion, bugprone-multiple-new-in-one-expression, bugprone-multiple-statement-macro, bugprone-narrowing-conversions, bugprone-no-escape, bugprone-non-zero-enum-to-bool-conversion, bugprone-nondeterministic-pointer-iteration-order, bugprone-not-null-terminated-result, bugprone-optional-value-conversion, bugprone-parent-virtual-call, bugprone-pointer-arithmetic-on-polymorphic-object, bugprone-posix-return, bugprone-random-generator-seed, bugprone-raw-memory-call-on-non-trivial-type, bugprone-redundant-branch-condition, bugprone-reserved-identifier, bugprone-return-const-ref-from-parameter, bugprone-shared-ptr-array-mismatch, bugprone-signal-handler, bugprone-signed-bitwise, bugprone-signed-char-misuse, bugprone-sizeof-container, bugprone-sizeof-expression, bugprone-spuriously-wake-up-functions, bugprone-standalone-empty, bugprone-std-exception-baseclass, bugprone-std-namespace-modification, bugprone-string-constructor, bugprone-string-integer-assignment, bugprone-string-literal-with-embedded-nul, bugprone-stringview-nullptr, bugprone-suspicious-enum-usage, bugprone-suspicious-include, bugprone-suspicious-memory-comparison, bugprone-suspicious-memset-usage, bugprone-suspicious-missing-comma, bugprone-suspicious-realloc-usage, bugprone-suspicious-semicolon, bugprone-suspicious-string-compare, bugprone-suspicious-stringview-data-usage, bugprone-swapped-arguments, bugprone-switch-missing-default-case, bugprone-tagged-union-member-count, bugprone-terminating-continue, bugprone-throw-keyword-missing, bugprone-throwing-static-initialization, bugprone-too-small-loop-variable, bugprone-unchecked-optional-access, bugprone-unchecked-string-to-number-conversion, bugprone-undefined-memory-manipulation, bugprone-undelegated-constructor, bugprone-unhandled-code-paths, bugprone-unhandled-exception-at-new, bugprone-unhandled-self-assignment, bugprone-unintended-char-ostream-output, bugprone-unique-ptr-array-mismatch, bugprone-unsafe-functions, bugprone-unsafe-to-allow-exceptions, bugprone-unused-local-non-trivial-variable, bugprone-unused-raii, bugprone-unused-return-value, bugprone-use-after-move, bugprone-virtual-near-miss, clang-analyzer-apiModeling.Errno, clang-analyzer-apiModeling.OpaqueSTLFunctionsModeling, clang-analyzer-apiModeling.TrustNonnull, clang-analyzer-apiModeling.TrustReturnsNonnull, clang-analyzer-core.BitwiseShift, clang-analyzer-core.CallAndMessage, clang-analyzer-core.DivideZero, clang-analyzer-core.DynamicTypePropagation, clang-analyzer-core.NonNullParamChecker, clang-analyzer-core.NonnilStringConstants, clang-analyzer-core.NullDereference, clang-analyzer-core.NullPointerArithm, clang-analyzer-core.StackAddressEscape, clang-analyzer-core.UndefinedBinaryOperatorResult, clang-analyzer-core.VLASize, clang-analyzer-core.builtin.AssumeModeling, clang-analyzer-core.builtin.BuiltinFunctions, clang-analyzer-core.builtin.NoReturnFunctions, clang-analyzer-core.uninitialized.ArraySubscript, clang-analyzer-core.uninitialized.Assign, clang-analyzer-core.uninitialized.Branch, clang-analyzer-core.uninitialized.CapturedBlockVariable, clang-analyzer-core.uninitialized.NewArraySize, clang-analyzer-core.uninitialized.UndefReturn, clang-analyzer-cplusplus.ArrayDelete, clang-analyzer-cplusplus.InnerPointer, clang-analyzer-cplusplus.Move, clang-analyzer-cplusplus.NewDelete, clang-analyzer-cplusplus.NewDeleteLeaks, clang-analyzer-cplusplus.PlacementNew, clang-analyzer-cplusplus.PureVirtualCall, clang-analyzer-cplusplus.SelfAssignment, clang-analyzer-cplusplus.SmartPtrModeling, clang-analyzer-cplusplus.StringChecker, clang-analyzer-deadcode.DeadStores, clang-analyzer-nullability.NullPassedToNonnull, clang-analyzer-nullability.NullReturnedFromNonnull, clang-analyzer-nullability.NullableDereferenced, clang-analyzer-nullability.NullablePassedToNonnull, clang-analyzer-nullability.NullableReturnedFromNonnull, clang-analyzer-optin.core.EnumCastOutOfRange, clang-analyzer-optin.core.FixedAddressDereference, clang-analyzer-optin.core.UnconditionalVAArg, clang-analyzer-optin.cplusplus.UninitializedObject, clang-analyzer-optin.cplusplus.VirtualCall, clang-analyzer-optin.performance.Padding, clang-analyzer-optin.portability.UnixAPI, clang-analyzer-optin.taint.GenericTaint, clang-analyzer-optin.taint.TaintPropagation, clang-analyzer-optin.taint.TaintedAlloc, clang-analyzer-optin.taint.TaintedDiv, clang-analyzer-security.ArrayBound, clang-analyzer-security.FloatLoopCounter, clang-analyzer-security.MmapWriteExec, clang-analyzer-security.PointerSub, clang-analyzer-security.PutenvStackArray, clang-analyzer-security.SetgidSetuidOrder, clang-analyzer-security.VAList, clang-analyzer-security.cert.env.InvalidPtr, clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling, clang-analyzer-security.insecureAPI.SecuritySyntaxChecker, clang-analyzer-security.insecureAPI.UncheckedReturn, clang-analyzer-security.insecureAPI.bcmp, clang-analyzer-security.insecureAPI.bcopy, clang-analyzer-security.insecureAPI.bzero, clang-analyzer-security.insecureAPI.decodeValueOfObjCType, clang-analyzer-security.insecureAPI.getpw, clang-analyzer-security.insecureAPI.gets, clang-analyzer-security.insecureAPI.mkstemp, clang-analyzer-security.insecureAPI.mktemp, clang-analyzer-security.insecureAPI.rand, clang-analyzer-security.insecureAPI.strcpy, clang-analyzer-security.insecureAPI.vfork, clang-analyzer-unix.API, clang-analyzer-unix.BlockInCriticalSection, clang-analyzer-unix.Chroot, clang-analyzer-unix.DynamicMemoryModeling, clang-analyzer-unix.Errno, clang-analyzer-unix.Malloc, clang-analyzer-unix.MallocSizeof, clang-analyzer-unix.MismatchedDeallocator, clang-analyzer-unix.StdCLibraryFunctions, clang-analyzer-unix.Stream, clang-analyzer-unix.Vfork, clang-analyzer-unix.cstring.BadSizeArg, clang-analyzer-unix.cstring.CStringModeling, clang-analyzer-unix.cstring.NotNullTerminated, clang-analyzer-unix.cstring.NullArg, clang-analyzer-unix.cstring.UninitializedRead, concurrency-mt-unsafe, concurrency-thread-canceltype-asynchronous, cppcoreguidelines-avoid-capturing-lambda-coroutines, cppcoreguidelines-avoid-const-or-ref-data-members, cppcoreguidelines-avoid-do-while, cppcoreguidelines-avoid-goto, cppcoreguidelines-avoid-reference-coroutine-parameters, cppcoreguidelines-c-copy-assignment-signature, cppcoreguidelines-explicit-constructor, cppcoreguidelines-explicit-virtual-functions, cppcoreguidelines-init-variables, cppcoreguidelines-interfaces-global-init, cppcoreguidelines-macro-to-enum, cppcoreguidelines-macro-usage, cppcoreguidelines-misleading-capture-default-by-value, cppcoreguidelines-missing-std-forward, cppcoreguidelines-narrowing-conversions, cppcoreguidelines-no-malloc, cppcoreguidelines-no-suspend-with-lock, cppcoreguidelines-noexcept-destructor, cppcoreguidelines-noexcept-move-operations, cppcoreguidelines-noexcept-swap, cppcoreguidelines-owning-memory, cppcoreguidelines-prefer-member-initializer, cppcoreguidelines-pro-bounds-array-to-pointer-decay, cppcoreguidelines-pro-bounds-avoid-unchecked-container-access, cppcoreguidelines-pro-bounds-constant-array-index, cppcoreguidelines-pro-bounds-pointer-arithmetic, cppcoreguidelines-pro-type-const-cast, cppcoreguidelines-pro-type-cstyle-cast, cppcoreguidelines-pro-type-member-init, cppcoreguidelines-pro-type-static-cast-downcast, cppcoreguidelines-pro-type-union-access, cppcoreguidelines-rvalue-reference-param-not-moved, cppcoreguidelines-slicing, cppcoreguidelines-special-member-functions, cppcoreguidelines-use-default-member-init, cppcoreguidelines-use-enum-class, cppcoreguidelines-virtual-class-destructor, misc-anonymous-namespace-in-header, misc-confusable-identifiers, misc-const-correctness, misc-coroutine-hostile-raii, misc-definitions-in-headers, misc-header-include-cycle, misc-include-cleaner, misc-misleading-bidirectional, misc-misleading-identifier, misc-misplaced-const, misc-multiple-inheritance, misc-new-delete-overloads, misc-no-recursion, misc-non-copyable-objects, misc-non-private-member-variables-in-classes, misc-override-with-different-visibility, misc-predictable-rand, misc-redundant-expression, misc-static-assert, misc-static-initialization-cycle, misc-throw-by-value-catch-by-reference, misc-unconventional-assign-operator, misc-uniqueptr-reset-release, misc-unused-alias-decls, misc-unused-parameters, misc-unused-using-decls, misc-use-anonymous-namespace, misc-use-internal-linkage, modernize-avoid-bind, modernize-avoid-c-arrays, modernize-avoid-c-style-cast, modernize-avoid-setjmp-longjmp, modernize-avoid-variadic-functions, modernize-concat-nested-namespaces, modernize-deprecated-headers, modernize-deprecated-ios-base-aliases, modernize-loop-convert, modernize-make-shared, modernize-make-unique, modernize-min-max-use-initializer-list, modernize-pass-by-value, modernize-raw-string-literal, modernize-redundant-void-arg, modernize-replace-auto-ptr, modernize-replace-disallow-copy-and-assign-macro, modernize-replace-random-shuffle, modernize-return-braced-init-list, modernize-shrink-to-fit, modernize-type-traits, modernize-unary-static-assert, modernize-use-auto, modernize-use-bool-literals, modernize-use-constraints, modernize-use-default-member-init, modernize-use-designated-initializers, modernize-use-emplace, modernize-use-equals-default, modernize-use-equals-delete, modernize-use-integer-sign-comparison, modernize-use-noexcept, modernize-use-nullptr, modernize-use-override, modernize-use-ranges, modernize-use-scoped-lock, modernize-use-starts-ends-with, modernize-use-std-bit, modernize-use-std-format, modernize-use-std-numbers, modernize-use-std-print, modernize-use-string-view, modernize-use-structured-binding, modernize-use-transparent-functors, modernize-use-uncaught-exceptions, modernize-use-using, performance-avoid-endl, performance-enum-size, performance-faster-string-find, performance-for-range-copy, performance-implicit-conversion-in-loop, performance-inefficient-algorithm, performance-inefficient-string-concatenation, performance-inefficient-vector-operation, performance-move-const-arg, performance-move-constructor-init, performance-no-automatic-move, performance-no-int-to-ptr, performance-noexcept-destructor, performance-noexcept-move-constructor, performance-noexcept-swap, performance-prefer-single-char-overloads, performance-string-view-conversions, performance-trivially-destructible, performance-type-promotion-in-math-fn, performance-unnecessary-copy-initialization, performance-unnecessary-value-param, performance-use-std-move, portability-no-assembler, portability-restrict-system-includes, portability-std-allocator-const, portability-template-virtual-member-function, readability-ambiguous-smartptr-reset-call, readability-avoid-const-params-in-decls, readability-avoid-nested-conditional-operator, readability-avoid-return-with-void-value, readability-avoid-unconditional-preprocessor-if, readability-braces-around-statements, readability-const-return-type, readability-container-contains, readability-container-data-pointer, readability-container-size-empty, readability-convert-member-functions-to-static, readability-delete-null-pointer, readability-duplicate-include, readability-else-after-return, readability-enum-initial-value, readability-function-cognitive-complexity, readability-function-size, readability-identifier-naming, readability-implicit-bool-conversion, readability-inconsistent-declaration-parameter-name, readability-inconsistent-ifelse-braces, readability-isolate-declaration, readability-make-member-function-const, readability-math-missing-parentheses, readability-misleading-indentation, readability-misplaced-array-index, readability-named-parameter, readability-non-const-parameter, readability-operators-representation, readability-qualified-auto, readability-redundant-access-specifiers, readability-redundant-casting, readability-redundant-control-flow, readability-redundant-declaration, readability-redundant-function-ptr-dereference, readability-redundant-inline-specifier, readability-redundant-lambda-parameter-list, readability-redundant-member-init, readability-redundant-nested-if, readability-redundant-parentheses, readability-redundant-preprocessor, readability-redundant-qualified-alias, readability-redundant-smartptr-get, readability-redundant-string-cstr, readability-redundant-string-init, readability-redundant-typename, readability-reference-to-constructed-temporary, readability-simplify-boolean-expr, readability-simplify-subscript-expr, readability-static-accessed-through-instance, readability-static-definition-in-anonymous-namespace, readability-string-compare, readability-suspicious-call-argument, readability-trailing-comma, readability-trivial-switch, readability-uniqueptr-delete-release, readability-use-anyofallof, readability-use-concise-preprocessor-directives, readability-use-std-min-max
+WarningsAsErrors: "bugprone-*,clang-analyzer-*"
+HeaderFilterRegex: ".*/(runner)/.*"
+FormatStyle: file
+
+# Base inventory from: clang-tidy --checks='*' --list-checks
+#
+# YAML block scalars can't carry inline comments without corrupting the
+# value, so the excluded checks (with reasons) are documented here, and the
+# `Checks:` key above contains only the enabled set.
+#
+# --- Excluded checks ---------------------------------------------------
+#   abseil-cleanup-ctad                                                            # not using Abseil
+#   abseil-duration-addition                                                       # not using Abseil
+#   abseil-duration-comparison                                                     # not using Abseil
+#   abseil-duration-conversion-cast                                                # not using Abseil
+#   abseil-duration-division                                                       # not using Abseil
+#   abseil-duration-factory-float                                                  # not using Abseil
+#   abseil-duration-factory-scale                                                  # not using Abseil
+#   abseil-duration-subtraction                                                    # not using Abseil
+#   abseil-duration-unnecessary-conversion                                         # not using Abseil
+#   abseil-faster-strsplit-delimiter                                               # not using Abseil
+#   abseil-no-internal-dependencies                                                # not using Abseil
+#   abseil-no-namespace                                                            # not using Abseil
+#   abseil-redundant-strcat-calls                                                  # not using Abseil
+#   abseil-str-cat-append                                                          # not using Abseil
+#   abseil-string-find-startswith                                                  # not using Abseil
+#   abseil-string-find-str-contains                                                # not using Abseil
+#   abseil-time-comparison                                                         # not using Abseil
+#   abseil-time-subtraction                                                        # not using Abseil
+#   abseil-unchecked-statusor-access                                               # not using Abseil
+#   abseil-upgrade-duration-conversions                                            # not using Abseil
+#   altera-id-dependent-backward-branch                                            # OpenCL FPGA target, not applicable
+#   altera-kernel-name-restriction                                                 # OpenCL FPGA target, not applicable
+#   altera-single-work-item-barrier                                                # OpenCL FPGA target, not applicable
+#   altera-struct-pack-align                                                       # OpenCL FPGA target, not applicable
+#   altera-unroll-loops                                                            # OpenCL FPGA target, not applicable
+#   android-cloexec-accept                                                         # Android/bionic platform specific
+#   android-cloexec-accept4                                                        # Android/bionic platform specific
+#   android-cloexec-creat                                                          # Android/bionic platform specific
+#   android-cloexec-dup                                                            # Android/bionic platform specific
+#   android-cloexec-epoll-create                                                   # Android/bionic platform specific
+#   android-cloexec-epoll-create1                                                  # Android/bionic platform specific
+#   android-cloexec-fopen                                                          # Android/bionic platform specific
+#   android-cloexec-inotify-init                                                   # Android/bionic platform specific
+#   android-cloexec-inotify-init1                                                  # Android/bionic platform specific
+#   android-cloexec-memfd-create                                                   # Android/bionic platform specific
+#   android-cloexec-open                                                           # Android/bionic platform specific
+#   android-cloexec-pipe                                                           # Android/bionic platform specific
+#   android-cloexec-pipe2                                                          # Android/bionic platform specific
+#   android-cloexec-socket                                                         # Android/bionic platform specific
+#   android-comparison-in-temp-failure-retry                                       # Android/bionic platform specific
+#   boost-use-ranges                                                               # not using Boost
+#   boost-use-to-string                                                            # not using Boost
+#   cert-arr39-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-con36-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-con54-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-ctr56-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-dcl03-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-dcl16-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-dcl37-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-dcl50-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-dcl51-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-dcl54-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-dcl58-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-dcl59-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-env33-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-err09-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-err33-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-err34-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-err52-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-err58-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-err60-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-err61-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-exp42-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-exp45-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-fio38-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-flp30-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-flp37-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-int09-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-mem57-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-msc24-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-msc30-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-msc32-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-msc33-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-msc50-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-msc51-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-msc54-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-oop11-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-oop54-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-oop57-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-oop58-cpp                                                                 # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-pos44-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-pos47-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-sig30-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   cert-str34-c                                                                   # overlaps bugprone-*/cppcoreguidelines-*; redundant to run both
+#   clang-analyzer-apiModeling.google.GTest                                        # not using GoogleTest
+#   clang-analyzer-apiModeling.llvm.CastValue                                      # LLVM internals modeling, not relevant
+#   clang-analyzer-apiModeling.llvm.ReturnValue                                    # LLVM internals modeling, not relevant
+#   clang-analyzer-fuchsia.HandleChecker                                           # Fuchsia OS specific
+#   clang-analyzer-optin.mpi.MPI-Checker                                           # not using MPI
+#   clang-analyzer-optin.osx.OSObjectCStyleCast                                    # macOS/Cocoa specific
+#   clang-analyzer-optin.osx.cocoa.localizability.EmptyLocalizationContextChecker  # macOS/Cocoa specific
+#   clang-analyzer-optin.osx.cocoa.localizability.NonLocalizedStringChecker        # macOS/Cocoa specific
+#   clang-analyzer-optin.performance.GCDAntipattern                                # Grand Central Dispatch is Apple-only
+#   clang-analyzer-osx.API                                                         # macOS/Cocoa specific
+#   clang-analyzer-osx.MIG                                                         # macOS/Cocoa specific
+#   clang-analyzer-osx.NumberObjectConversion                                      # macOS/Cocoa specific
+#   clang-analyzer-osx.OSObjectRetainCount                                         # macOS/Cocoa specific
+#   clang-analyzer-osx.ObjCProperty                                                # macOS/Cocoa specific
+#   clang-analyzer-osx.SecKeychainAPI                                              # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.AtSync                                                # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.AutoreleaseWrite                                      # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.ClassRelease                                          # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.Dealloc                                               # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.IncompatibleMethodTypes                               # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.Loops                                                 # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.MissingSuperCall                                      # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.NSAutoreleasePool                                     # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.NSError                                               # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.NilArg                                                # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.NonNilReturnValue                                     # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.ObjCGenerics                                          # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.RetainCount                                           # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.RetainCountBase                                       # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.RunLoopAutoreleaseLeak                                # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.SelfInit                                              # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.SuperDealloc                                          # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.UnusedIvars                                           # macOS/Cocoa specific
+#   clang-analyzer-osx.cocoa.VariadicMethodTypes                                   # macOS/Cocoa specific
+#   clang-analyzer-osx.coreFoundation.CFError                                      # macOS/Cocoa specific
+#   clang-analyzer-osx.coreFoundation.CFNumber                                     # macOS/Cocoa specific
+#   clang-analyzer-osx.coreFoundation.CFRetainRelease                              # macOS/Cocoa specific
+#   clang-analyzer-osx.coreFoundation.containers.OutOfBounds                       # macOS/Cocoa specific
+#   clang-analyzer-osx.coreFoundation.containers.PointerSizedValues                # macOS/Cocoa specific
+#   clang-analyzer-webkit.NoUncountedMemberChecker                                 # WebKit-specific ref-counting checks
+#   clang-analyzer-webkit.RefCntblBaseVirtualDtor                                  # WebKit-specific ref-counting checks
+#   clang-analyzer-webkit.UncountedLambdaCapturesChecker                           # WebKit-specific ref-counting checks
+#   cppcoreguidelines-avoid-c-arrays                                               # duplicate of modernize-avoid-c-arrays
+#   cppcoreguidelines-avoid-magic-numbers                                          # duplicate of readability-magic-numbers, noisy on DPI/style constants
+#   cppcoreguidelines-avoid-non-const-global-variables                             # g_active_window_count is intentional shared registrar state
+#   cppcoreguidelines-non-private-member-variables-in-classes                      # duplicate of misc-non-private-member-variables-in-classes
+#   cppcoreguidelines-pro-type-reinterpret-cast                                    # Win32 (WndProc/GWLP_USERDATA) needs reinterpret_cast
+#   cppcoreguidelines-pro-type-vararg                                              # Win32 API (CreateWindow, RegGetValue) requires vararg-style C APIs
+#   darwin-avoid-spinlock                                                          # macOS/Darwin specific
+#   darwin-dispatch-once-nonstatic                                                 # macOS/Darwin specific
+#   fuchsia-default-arguments-calls                                                # Fuchsia OS style guide
+#   fuchsia-default-arguments-declarations                                         # Fuchsia OS style guide
+#   fuchsia-header-anon-namespaces                                                 # Fuchsia OS style guide
+#   fuchsia-multiple-inheritance                                                   # Fuchsia OS style guide
+#   fuchsia-overloaded-operator                                                    # Fuchsia OS style guide
+#   fuchsia-statically-constructed-objects                                         # Fuchsia OS style guide
+#   fuchsia-temporary-objects                                                      # Fuchsia OS style guide
+#   fuchsia-trailing-return                                                        # Fuchsia OS style guide
+#   fuchsia-virtual-inheritance                                                    # Fuchsia OS style guide
+#   google-build-explicit-make-pair                                                # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-build-namespaces                                                        # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-build-using-namespace                                                   # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-default-arguments                                                       # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-explicit-constructor                                                    # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-global-names-in-headers                                                 # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-objc-avoid-nsobject-new                                                 # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-objc-avoid-throwing-exception                                           # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-objc-function-naming                                                    # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-objc-global-variable-declaration                                        # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-readability-avoid-underscore-in-googletest-name                         # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-readability-braces-around-statements                                    # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-readability-casting                                                     # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-readability-function-size                                               # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-readability-namespace-comments                                          # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-runtime-float                                                           # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-runtime-int                                                             # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-runtime-operator                                                        # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   google-upgrade-googletest-case                                                 # Google style guide; conflicts with readability-*/cppcoreguidelines-* choices
+#   linuxkernel-must-check-errs                                                    # Linux kernel specific
+#   llvm-else-after-return                                                         # LLVM project style guide
+#   llvm-formatv-string                                                            # LLVM project style guide
+#   llvm-header-guard                                                              # LLVM project style guide
+#   llvm-include-order                                                             # LLVM project style guide
+#   llvm-namespace-comment                                                         # LLVM project style guide
+#   llvm-prefer-isa-or-dyn-cast-in-conditionals                                    # LLVM project style guide
+#   llvm-prefer-register-over-unsigned                                             # LLVM project style guide
+#   llvm-prefer-static-over-anonymous-namespace                                    # LLVM project style guide
+#   llvm-qualified-auto                                                            # LLVM project style guide
+#   llvm-redundant-casting                                                         # LLVM project style guide
+#   llvm-twine-local                                                               # LLVM project style guide
+#   llvm-type-switch-case-types                                                    # LLVM project style guide
+#   llvm-use-new-mlir-op-builder                                                   # LLVM project style guide
+#   llvm-use-ranges                                                                # LLVM project style guide
+#   llvm-use-vector-utils                                                          # LLVM project style guide
+#   llvmlibc-callee-namespace                                                      # LLVM libc implementation specific
+#   llvmlibc-implementation-in-namespace                                           # LLVM libc implementation specific
+#   llvmlibc-inline-function-decl                                                  # LLVM libc implementation specific
+#   llvmlibc-restrict-system-libc-headers                                          # LLVM libc implementation specific
+#   misc-explicit-constructor                                                      # duplicate of cppcoreguidelines/google-explicit-constructor
+#   modernize-macro-to-enum                                                        # duplicate of cppcoreguidelines-macro-to-enum
+#   modernize-use-nodiscard                                                        # noisy to retrofit onto Flutter-generated code you don't fully own
+#   modernize-use-trailing-return-type                                             # style preference, not a bug-finder
+#   mpi-buffer-deref                                                               # not using MPI
+#   mpi-type-mismatch                                                              # not using MPI
+#   objc-assert-equals                                                             # Objective-C only
+#   objc-avoid-nserror-init                                                        # Objective-C only
+#   objc-dealloc-in-category                                                       # Objective-C only
+#   objc-forbidden-subclassing                                                     # Objective-C only
+#   objc-missing-hash                                                              # Objective-C only
+#   objc-nsdate-formatter                                                          # Objective-C only
+#   objc-nsinvocation-argument-lifetime                                            # Objective-C only
+#   objc-property-declaration                                                      # Objective-C only
+#   objc-super-self                                                                # Objective-C only
+#   openmp-exception-escape                                                        # not using OpenMP
+#   openmp-use-default-none                                                        # not using OpenMP
+#   portability-avoid-pragma-once                                                  # Flutter-generated headers use #pragma once; conflicts with codegen
+#   portability-simd-intrinsics                                                    # not using SIMD intrinsics in this codebase
+#   readability-identifier-length                                                  # flags idiomatic short Win32/GTK names (hwnd, dpi, x, y)
+#   readability-magic-numbers                                                      # flags DPI baseline (96.0), window style flags etc.; too noisy here
+#   readability-uppercase-literal-suffix                                           # subjective style, low signal
+#   zircon-temporary-objects                                                       # Fuchsia/Zircon specific
+# -------------------------------------------------------------------------

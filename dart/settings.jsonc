@@ -1,0 +1,21 @@
+{
+    //! Editor Behavior
+    "files.associations": {
+        ".pubignore": "txt"
+    },
+    //! Language & Plugin
+    "[dart]": {
+        "editor.selectionHighlight": false, // Let dart choose which instances of selected words to highlight rather than all of them
+        "editor.wordBasedSuggestions": "off", // Let dart choose the autocompletes
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "never",
+            "source.organizeImports": "never"
+        }
+    },
+    //! Ignored Values
+    "files.exclude": {
+        "**/flutter/ephemeral": true,
+        "**/Flutter/ephemeral": true,
+        "**/.dart_tool": true
+    }
+}

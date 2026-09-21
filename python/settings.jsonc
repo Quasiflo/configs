@@ -1,0 +1,8 @@
+{
+    //! Ignored Values
+    "files.exclude": {
+        "**/.ruff_cache": true,
+        "**/.venv": true,
+        "**/__pycache__": true
+    }
+}

@@ -1,0 +1,17 @@
+#! Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+# Distribution / packaging
+.Python
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+# Environments
+venv/
+.venv/
+venv.bak/
+.venv.bak/
+# Ruff stuff:
+.ruff_cache/

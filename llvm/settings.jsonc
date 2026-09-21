@@ -1,0 +1,17 @@
+{
+    //! Language & Plugin
+    "mise.customBinaryExtensions": [
+        {
+            "extensionId": "llvm-vs-code-extensions.lldb-dap",
+            "toolSources": [
+                "buildit:lldb"
+            ],
+            "supportsShims": true,
+            "supportsSymlinks": true,
+            "vscodeSetting": {
+                "key": "lldb-dap.executable-path"
+            },
+            "binName": "lldb-dap"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    //! Language & Plugin
+    "oxc.enable.oxfmt": true,
+    "oxc.enable.oxlint": true,
+    "oxc.configPath": "${workspaceFolder}/.config/generated/.oxlintrc.jsonc",
+    "oxc.fmt.configPath": "${workspaceFolder}/.config/generated/.oxfmtrc.jsonc",
+    "[javascript]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    //! Ignored Values
+    "files.exclude": {
+        "**/node_modules": true
+    }
+}

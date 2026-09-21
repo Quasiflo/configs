@@ -1,0 +1,11 @@
+{
+    //! Language & Plugin
+    "shellcheck.disableVersionCheck": true,
+    "shellcheck.useWorkspaceRootAsCwd": true,
+    "shellcheck.run": "onSave",
+    "[shellcheck]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit"
+        }
+    }
+}

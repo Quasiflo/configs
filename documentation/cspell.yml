@@ -1,0 +1,100 @@
+---
+import:
+  - "@cspell/dict-gdscript/cspell-ext.json"
+  - "@cspell/dict-win32/cspell-ext.json"
+  - "@cspell/dict-mime-types/cspell-ext.json"
+  - "@cspell/dict-people-names/cspell-ext.json"
+  - "@cspell/dict-scientific-terms-us/cspell-ext.json"
+  - "@quasiflo/smartcspell/cspell-ext.json"
+useGitignore: true
+enableGlobDot: true
+ignorePaths:
+  - "**/.git/**"
+  - "**/CHANGELOG.md"
+  - "**/mise.toml"
+  - "**/mise.*toml"
+  - "**/mise.lock"
+  - "**/launch.json"
+  - "**/extensions.json"
+  - "**/settings.json"
+  - "**/settings.jsonc"
+  - "**/settings.template.jsonc"
+  - "**/settings.local.jsonc"
+  - "**/pubspec.yaml"
+  - "**/package.json"
+  - "**/pnpm-lock.yaml"
+  - "**/bun.lock"
+  - "**/renovate.json"
+  - "**/renovate.json5"
+  - "**/.devcontainer/devcontainer.pkl"
+  - "**/taskfile.yml"
+  - "**/*.gitignore"
+  - "**/*.gitattributes"
+  - '**/Base.lproj/MainMenu.xib' # Contains canonically misspelled attributes for XCode projects
+ignoreRegExpList:
+  - "%[a-zA-Z]\\w*" # Ignores printf-style format specifiers like %sword
+  - "-D\\w*" # Ignores c compiler defines flags like -DWORD
+dictionaries:
+  # Language
+  - en
+  - en-AU
+  # Programming
+  - cpp-legacy
+  - cpp
+  - cpp-compound-words
+  - cpp-refined
+  - csharp
+  - css
+  - dart
+  - docker
+  - flutter
+  - fullstack
+  - gdscript
+  - git
+  - golang
+  - html
+  - html-symbol-entities
+  - java
+  - k8s
+  - kotlin
+  - latex
+  - lua
+  - makefile
+  - node
+  - npm
+  - php
+  - powershell
+  - python
+  - python-common
+  - ruby
+  - ruby-gems
+  - rust
+  - rust-crates
+  - bash
+  - shellscript
+  - sql
+  - swift
+  - terraform
+  - typescript
+  - win32
+  # Specialized
+  - public-licenses
+  - companies
+  - filetypes
+  - fonts
+  - gaming-terms
+  - game-development
+  - google
+  - mime-types
+  - people-names
+  - scientific-terms-us
+  - mathematics-terms-us
+  - software-term-suggestions
+  - softwareTerms
+  - software-tools
+  - networking-terms
+  - web-services
+  - computing-acronyms
+  - coding-compound-terms
+  - software-terms-alternative
+language: "en,en-AU"
