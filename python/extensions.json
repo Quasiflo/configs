@@ -1,9 +1,9 @@
 {
-    "recommendations": [
-        "astral-sh.ty",
-        "charliermarsh.ruff",
-        "ms-python.debugpy",
-        "ms-python.python",
-        "njqdev.vscode-python-typehint"
-    ]
+  "recommendations": [
+    "astral-sh.ty",
+    "charliermarsh.ruff",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "njqdev.vscode-python-typehint"
+  ]
 }

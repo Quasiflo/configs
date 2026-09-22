@@ -1,5 +1,5 @@
-import "../version.pkl" as version
 import "../hk.pkl" as hk
+import "../version.pkl" as version
 
 fix: Mapping<String, hk.Step> = new {
   ["[fix] swift"] = version.Builtins.swiftlint

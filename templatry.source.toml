@@ -3,587 +3,588 @@ include_labels = ["common", "documentation"]
 
 #! Abstractions
 [abstract.gitignore]
-    generated_dir = "."
-    generated_file = ".gitignore"
-    override_dir = "."
-    override_file = "template.gitignore"
-    strategy = "append_bottom"
+generated_dir = "."
+generated_file = ".gitignore"
+override_dir = "."
+override_file = "template.gitignore"
+strategy = "append_bottom"
 
 [abstract.gitattributes]
-    generated_dir = "."
-    generated_file = ".gitattributes"
-    override_dir = "."
-    override_file = "template.gitattributes"
-    strategy = "append_bottom"
+generated_dir = "."
+generated_file = ".gitattributes"
+override_dir = "."
+override_file = "template.gitattributes"
+strategy = "append_bottom"
 
 [abstract.hk]
-    strategy = "none"
+strategy = "none"
 
 [abstract.vscode-extensions]
-    generated_dir = ".vscode/"
-    generated_file = "extensions.json"
-    override_dir = ".vscode/"
-    override_file = "extensions.template.json"
-    strategy = "merge_json"
+generated_dir = ".vscode/"
+generated_file = "extensions.json"
+override_dir = ".vscode/"
+override_file = "extensions.template.json"
+strategy = "merge_json"
 
 [abstract.vscode-settings]
-    generated_dir = ".vscode/"
-    generated_file = "settings.json"
-    override_dir = ".vscode/"
-    override_file = "settings.template.json"
-    local_override_file = "settings.local.json"
-    back_propagate = true
-    backprop_ignore = [
-        "explorerExcludeManager.backup", 
-        "clangd.path", 
-        "cmake.cmakePath",
-        "python.defaultInterpreterPath",
-        "shellcheck.executablePath",
-        "java.jdt.ls.java.home",
-        "java.import.gradle.java.home",
-        "ruff.interpreter",
-        "ruff.path",
-        "dart.flutterSdkPath",
-        "debug.javascript.defaultRuntimeExecutable",
-        "pkl.cli.path",
-        "pkl.lsp.java.path",
-        "oxc.path.node",
-        "oxc.path.oxlint",
-        "oxc.path.oxfmt",
-        "hadolint.hadolintPath",
-        "sonarlint.ls.javaHome",
-        "sonarlint.pathToNodeExecutable",
-        "ty.path",
-        "tombi.path",
-        "shellformat.path",
-        "Lua.misc.executablePath",
-        "dotnetAcquisitionExtension.sharedExistingDotnetPath",
-        "lldb-dap.executable-path",
-        "go.goroot",
-        "go.alternateTools",
-        "swift.path",
-    ]
-    backprop_ignore_values = ["files.exclude.*"]
-    strategy = "merge_json"
+generated_dir = ".vscode/"
+generated_file = "settings.json"
+override_dir = ".vscode/"
+override_file = "settings.template.json"
+local_override_file = "settings.local.json"
+back_propagate = true
+backprop_ignore = [
+  "explorerExcludeManager.backup",
+  "clangd.path",
+  "cmake.cmakePath",
+  "python.defaultInterpreterPath",
+  "shellcheck.executablePath",
+  "java.jdt.ls.java.home",
+  "java.import.gradle.java.home",
+  "ruff.interpreter",
+  "ruff.path",
+  "dart.flutterSdkPath",
+  "debug.javascript.defaultRuntimeExecutable",
+  "pkl.cli.path",
+  "pkl.lsp.java.path",
+  "oxc.path.node",
+  "oxc.path.oxlint",
+  "oxc.path.oxfmt",
+  "hadolint.hadolintPath",
+  "sonarlint.ls.javaHome",
+  "sonarlint.pathToNodeExecutable",
+  "ty.path",
+  "tombi.path",
+  "shellformat.path",
+  "Lua.misc.executablePath",
+  "dotnetAcquisitionExtension.sharedExistingDotnetPath",
+  "lldb-dap.executable-path",
+  "go.goroot",
+  "go.alternateTools",
+  "swift.path",
+]
+backprop_ignore_values = ["files.exclude.*"]
+strategy = "merge_json"
 
 #! Templates
 [templates.rumdl]
-    template = "documentation/rumdl.toml"
-    strategy = "merge_toml"
-    labels = [ "documentation" ]
+template = "documentation/rumdl.toml"
+strategy = "merge_toml"
+labels = ["documentation"]
 
 [templates.lychee]
-    template = "documentation/lychee.toml"
-    strategy = "merge_toml"
-    labels = [ "documentation" ]
+template = "documentation/lychee.toml"
+strategy = "merge_toml"
+labels = ["documentation"]
 
 [templates.cspell]
-    template = "documentation/cspell.yml"
-    strategy = "merge_yaml"
-    # labels = [ "documentation" ] # TODO enable once reviewed
+template = "documentation/cspell.yml"
+strategy = "merge_yaml"
+# labels = [ "documentation" ] # TODO enable once reviewed
 
 [templates.license-apache]
-    template = "license/LICENSE-APACHE"
-    generated_dir = "." # License must be at project root
-    strategy = "none"
-    labels = [ "license" ]
+template = "licenses/LICENSE-APACHE"
+generated_file = "LICENSE"
+generated_dir = "."  # License must be at project root
+strategy = "none"
+labels = ["license"]
 
 [templates.license-notice-apache]
-    template = "license/license-notice-apache.md" # HK checks the context of this is in the README
-    strategy = "none"
-    labels = [ "license" ]
+template = "licenses/license-notice-apache.md"  # HK checks the context of this is in the README
+strategy = "none"
+labels = ["license"]
 
 [templates.jscpd]
-    template = "common/.jscpd.json"
-    strategy = "merge_json"
-    labels = [ "common" ]
+template = "common/.jscpd.json"
+strategy = "merge_json"
+labels = ["common"]
 
 [templates.kingfisher]
-    template = "common/kingfisher.yaml"
-    strategy = "merge_yaml"
-    labels = [ "common" ]
+template = "common/kingfisher.yaml"
+strategy = "merge_yaml"
+labels = ["common"]
 
 [templates.ls-lint]
-    template = "common/.ls-lint.yml"
-    strategy = "merge_yaml"
-    labels = [ "common" ]
+template = "common/.ls-lint.yml"
+strategy = "merge_yaml"
+labels = ["common"]
 
 [templates.mise-backend-lint]
-    template = "common/mise-backend-lint.sh"
-    strategy = "none"
-    labels = [ "common" ]
+template = "common/mise-backend-lint.sh"
+strategy = "none"
+labels = ["common"]
 
 [templates.stylua]
-    template = "lua/stylua.toml"
-    strategy = "merge_toml"
-    labels = [ "lua" ]
+template = "lua/stylua.toml"
+strategy = "merge_toml"
+labels = ["lua"]
 
 [templates.stylelint]
-    template = "web/.stylelintrc.json"
-    strategy = "merge_json"
-    labels = [ "web" ]
+template = "web/.stylelintrc.json"
+strategy = "merge_json"
+labels = ["web"]
 
 [templates.htmlhint]
-    template = "web/.htmlhintrc"
-    strategy = "merge_json"
-    labels = [ "web" ]
+template = "web/.htmlhintrc"
+strategy = "merge_json"
+labels = ["web"]
 
 [templates.yamlfmt]
-    template = "yaml/.yamlfmt"
-    strategy = "merge_yaml"
-    labels = [ "yaml" ]
+template = "yaml/.yamlfmt"
+strategy = "merge_yaml"
+labels = ["yaml"]
 
 [templates.yamllint]
-    template = "yaml/.yamllint"
-    strategy = "merge_yaml"
-    labels = [ "yaml" ]
+template = "yaml/.yamllint"
+strategy = "merge_yaml"
+labels = ["yaml"]
 
 [templates.hadolint]
-    template = "docker/.hadolint.yaml"
-    strategy = "merge_yaml"
-    labels = [ "docker" ]
+template = "docker/.hadolint.yaml"
+strategy = "merge_yaml"
+labels = ["docker"]
 
 [templates.oxfmt]
-    template = "javascript/.oxfmtrc.jsonc"
-    strategy = "merge_json"
-    labels = [ "javascript" ]
+template = "javascript/.oxfmtrc.jsonc"
+strategy = "merge_json"
+labels = ["javascript"]
 
 [templates.oxlint]
-    template = "javascript/.oxlintrc.jsonc"
-    strategy = "merge_json"
-    labels = [ "javascript" ]
+template = "javascript/.oxlintrc.jsonc"
+strategy = "merge_json"
+labels = ["javascript"]
 
 [templates.detekt]
-    template = "kotlin/detekt.yml"
-    strategy = "merge_yaml"
-    labels = [ "kotlin" ]
+template = "kotlin/detekt.yml"
+strategy = "merge_yaml"
+labels = ["kotlin"]
 
 [templates.clang-format]
-    template = "cpp/template.clang-format"
-    generated_file = ".clang-format"
-    generated_dir = "." # Must be at root for clangd to find
-    override_dir = "."
-    strategy = "merge_yaml"
-    labels = [ "cpp" ]
+template = "cpp/template.clang-format"
+generated_file = ".clang-format"
+generated_dir = "."  # Must be at root for clangd to find
+override_dir = "."
+strategy = "merge_yaml"
+labels = ["cpp"]
 
 [templates.clang-tidy]
-    template = "cpp/template.clang-tidy"
-    generated_file = ".clang-tidy"
-    generated_dir = "." # Must be at root for clangd to find
-    override_dir = "."
-    strategy = "merge_yaml"
-    labels = [ "cpp" ]
+template = "cpp/template.clang-tidy"
+generated_file = ".clang-tidy"
+generated_dir = "."  # Must be at root for clangd to find
+override_dir = "."
+strategy = "merge_yaml"
+labels = ["cpp"]
 
 [templates.shell-strict-lint]
-    template = "shell/check-strict-lint.sh"
-    strategy = "none"
-    labels = [ "shell" ]
+template = "shell/check-strict-lint.sh"
+strategy = "none"
+labels = ["shell"]
 
 #! HK
 [templates.hk-common]
-    template = "common/hk-common.pkl"
-    extends = "hk"
-    labels = [ "common" ]
+template = "common/hk-common.pkl"
+extends = "hk"
+labels = ["common"]
 
 [templates.hk-cpp]
-    template = "cpp/hk-cpp.pkl"
-    extends = "hk"
-    labels = [ "cpp" ]
+template = "cpp/hk-cpp.pkl"
+extends = "hk"
+labels = ["cpp"]
 
 [templates.hk-dart]
-    template = "dart/hk-dart.pkl"
-    extends = "hk"
-    labels = [ "dart" ]
+template = "dart/hk-dart.pkl"
+extends = "hk"
+labels = ["dart"]
 
 [templates.hk-docker]
-    template = "docker/hk-docker.pkl"
-    extends = "hk"
-    labels = [ "docker" ]
+template = "docker/hk-docker.pkl"
+extends = "hk"
+labels = ["docker"]
 
 [templates.hk-documentation]
-    template = "documentation/hk-documentation.pkl"
-    extends = "hk"
-    labels = [ "documentation" ]
+template = "documentation/hk-documentation.pkl"
+extends = "hk"
+labels = ["documentation"]
 
 [templates.hk-github]
-    template = "github/hk-github.pkl"
-    extends = "hk"
-    labels = [ "github" ]
+template = "github/hk-github.pkl"
+extends = "hk"
+labels = ["github"]
 
 [templates.hk-go]
-    template = "go/hk-go.pkl"
-    extends = "hk"
-    labels = [ "go" ]
+template = "go/hk-go.pkl"
+extends = "hk"
+labels = ["go"]
 
 [templates.hk-javascript]
-    template = "javascript/hk-javascript.pkl"
-    extends = "hk"
-    labels = [ "javascript" ]
+template = "javascript/hk-javascript.pkl"
+extends = "hk"
+labels = ["javascript"]
 
 [templates.hk-json]
-    template = "json/hk-json.pkl"
-    extends = "hk"
-    labels = [ "json" ]
+template = "json/hk-json.pkl"
+extends = "hk"
+labels = ["json"]
 
 [templates.hk-kotlin]
-    template = "kotlin/hk-kotlin.pkl"
-    extends = "hk"
-    labels = [ "kotlin" ]
+template = "kotlin/hk-kotlin.pkl"
+extends = "hk"
+labels = ["kotlin"]
 
 [templates.hk-license]
-    template = "license/hk-license.pkl"
-    extends = "hk"
-    labels = [ "license" ]
+template = "licenses/hk-license.pkl"
+extends = "hk"
+labels = ["license"]
 
 [templates.hk-lua]
-    template = "lua/hk-lua.pkl"
-    extends = "hk"
-    labels = [ "lua" ]
+template = "lua/hk-lua.pkl"
+extends = "hk"
+labels = ["lua"]
 
 [templates.hk-openapi]
-    template = "openapi/hk-openapi.pkl"
-    extends = "hk"
-    labels = [ "openapi" ]
+template = "openapi/hk-openapi.pkl"
+extends = "hk"
+labels = ["openapi"]
 
 [templates.hk-pkl]
-    template = "pkl/hk-pkl.pkl"
-    extends = "hk"
-    labels = [ "pkl" ]
+template = "pkl/hk-pkl.pkl"
+extends = "hk"
+labels = ["pkl"]
 
 [templates.hk-python]
-    template = "python/hk-python.pkl"
-    extends = "hk"
-    labels = [ "python" ]
+template = "python/hk-python.pkl"
+extends = "hk"
+labels = ["python"]
 
 [templates.hk-rust]
-    template = "rust/hk-rust.pkl"
-    extends = "hk"
-    labels = [ "rust" ]
+template = "rust/hk-rust.pkl"
+extends = "hk"
+labels = ["rust"]
 
 [templates.hk-shell]
-    template = "shell/hk-shell.pkl"
-    extends = "hk"
-    labels = [ "shell" ]
+template = "shell/hk-shell.pkl"
+extends = "hk"
+labels = ["shell"]
 
 [templates.hk-swift]
-    template = "swift/hk-swift.pkl"
-    extends = "hk"
-    labels = [ "swift" ]
+template = "swift/hk-swift.pkl"
+extends = "hk"
+labels = ["swift"]
 
 [templates.hk-toml]
-    template = "toml/hk-toml.pkl"
-    extends = "hk"
-    labels = [ "toml" ]
+template = "toml/hk-toml.pkl"
+extends = "hk"
+labels = ["toml"]
 
 [templates.hk-web]
-    template = "web/hk-web.pkl"
-    extends = "hk"
-    labels = [ "web" ]
+template = "web/hk-web.pkl"
+extends = "hk"
+labels = ["web"]
 
 [templates.hk-xml]
-    template = "xml/hk-xml.pkl"
-    extends = "hk"
-    labels = [ "xml" ]
+template = "xml/hk-xml.pkl"
+extends = "hk"
+labels = ["xml"]
 
 [templates.hk-yaml]
-    template = "yaml/hk-yaml.pkl"
-    extends = "hk"
-    labels = [ "yaml" ]
+template = "yaml/hk-yaml.pkl"
+extends = "hk"
+labels = ["yaml"]
 
 #! VSCode
 [templates.vscode-settings-common]
-    template = "common/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "common" ]
+template = "common/settings.jsonc"
+extends = "vscode-settings"
+labels = ["common"]
 
 [templates.vscode-settings-cpp]
-    template = "cpp/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "cpp" ]
+template = "cpp/settings.jsonc"
+extends = "vscode-settings"
+labels = ["cpp"]
 
 [templates.vscode-settings-dart]
-    template = "dart/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "dart" ]
+template = "dart/settings.jsonc"
+extends = "vscode-settings"
+labels = ["dart"]
 
 [templates.vscode-settings-docker]
-    template = "docker/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "docker" ]
+template = "docker/settings.jsonc"
+extends = "vscode-settings"
+labels = ["docker"]
 
 [templates.vscode-settings-documentation]
-    template = "documentation/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "documentation" ]
+template = "documentation/settings.jsonc"
+extends = "vscode-settings"
+labels = ["documentation"]
 
 [templates.vscode-settings-java]
-    template = "java/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "java" ]
+template = "java/settings.jsonc"
+extends = "vscode-settings"
+labels = ["java"]
 
 [templates.vscode-settings-javascript]
-    template = "javascript/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "javascript" ]
+template = "javascript/settings.jsonc"
+extends = "vscode-settings"
+labels = ["javascript"]
 
 [templates.vscode-settings-json]
-    template = "json/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "json" ]
+template = "json/settings.jsonc"
+extends = "vscode-settings"
+labels = ["json"]
 
 [templates.vscode-settings-llvm]
-    template = "llvm/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "llvm" ]
+template = "llvm/settings.jsonc"
+extends = "vscode-settings"
+labels = ["llvm"]
 
 [templates.vscode-settings-mcu]
-    template = "mcu/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "mcu" ]
+template = "mcu/settings.jsonc"
+extends = "vscode-settings"
+labels = ["mcu"]
 
 [templates.vscode-settings-pkl]
-    template = "pkl/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "pkl" ]
+template = "pkl/settings.jsonc"
+extends = "vscode-settings"
+labels = ["pkl"]
 
 [templates.vscode-settings-python]
-    template = "python/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "python" ]
+template = "python/settings.jsonc"
+extends = "vscode-settings"
+labels = ["python"]
 
 [templates.vscode-settings-shell]
-    template = "shell/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "shell" ]
+template = "shell/settings.jsonc"
+extends = "vscode-settings"
+labels = ["shell"]
 
 [templates.vscode-settings-toml]
-    template = "toml/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "toml" ]
+template = "toml/settings.jsonc"
+extends = "vscode-settings"
+labels = ["toml"]
 
 [templates.vscode-settings-web]
-    template = "web/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "web" ]
+template = "web/settings.jsonc"
+extends = "vscode-settings"
+labels = ["web"]
 
 [templates.vscode-settings-yaml]
-    template = "yaml/settings.jsonc"
-    extends = "vscode-settings"
-    labels = [ "yaml" ]
+template = "yaml/settings.jsonc"
+extends = "vscode-settings"
+labels = ["yaml"]
 
 #! VSCode extensions (shared destination: .vscode/extensions.json)
 [templates.vscode-extensions-common]
-    template = "common/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "common" ]
+template = "common/extensions.json"
+extends = "vscode-extensions"
+labels = ["common"]
 
 [templates.vscode-extensions-cpp]
-    template = "cpp/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "cpp" ]
+template = "cpp/extensions.json"
+extends = "vscode-extensions"
+labels = ["cpp"]
 
 [templates.vscode-extensions-dart]
-    template = "dart/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "dart" ]
+template = "dart/extensions.json"
+extends = "vscode-extensions"
+labels = ["dart"]
 
 [templates.vscode-extensions-docker]
-    template = "docker/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "docker" ]
+template = "docker/extensions.json"
+extends = "vscode-extensions"
+labels = ["docker"]
 
 [templates.vscode-extensions-documentation]
-    template = "documentation/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "documentation" ]
+template = "documentation/extensions.json"
+extends = "vscode-extensions"
+labels = ["documentation"]
 
 [templates.vscode-extensions-go]
-    template = "go/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "go" ]
+template = "go/extensions.json"
+extends = "vscode-extensions"
+labels = ["go"]
 
 [templates.vscode-extensions-godot]
-    template = "godot/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "godot" ]
+template = "godot/extensions.json"
+extends = "vscode-extensions"
+labels = ["godot"]
 
 [templates.vscode-extensions-java]
-    template = "java/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "java" ]
+template = "java/extensions.json"
+extends = "vscode-extensions"
+labels = ["java"]
 
 [templates.vscode-extensions-javascript]
-    template = "javascript/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "javascript" ]
+template = "javascript/extensions.json"
+extends = "vscode-extensions"
+labels = ["javascript"]
 
 [templates.vscode-extensions-json]
-    template = "json/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "json" ]
+template = "json/extensions.json"
+extends = "vscode-extensions"
+labels = ["json"]
 
 [templates.vscode-extensions-jupyter]
-    template = "jupyter/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "jupyter" ]
+template = "jupyter/extensions.json"
+extends = "vscode-extensions"
+labels = ["jupyter"]
 
 [templates.vscode-extensions-kotlin]
-    template = "kotlin/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "kotlin" ]
+template = "kotlin/extensions.json"
+extends = "vscode-extensions"
+labels = ["kotlin"]
 
 [templates.vscode-extensions-llvm]
-    template = "llvm/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "llvm" ]
+template = "llvm/extensions.json"
+extends = "vscode-extensions"
+labels = ["llvm"]
 
 [templates.vscode-extensions-lua]
-    template = "lua/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "lua" ]
+template = "lua/extensions.json"
+extends = "vscode-extensions"
+labels = ["lua"]
 
 [templates.vscode-extensions-mcu]
-    template = "mcu/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "mcu" ]
+template = "mcu/extensions.json"
+extends = "vscode-extensions"
+labels = ["mcu"]
 
 [templates.vscode-extensions-pkl]
-    template = "pkl/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "pkl" ]
+template = "pkl/extensions.json"
+extends = "vscode-extensions"
+labels = ["pkl"]
 
 [templates.vscode-extensions-python]
-    template = "python/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "python" ]
+template = "python/extensions.json"
+extends = "vscode-extensions"
+labels = ["python"]
 
 [templates.vscode-extensions-rust]
-    template = "rust/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "rust" ]
+template = "rust/extensions.json"
+extends = "vscode-extensions"
+labels = ["rust"]
 
 [templates.vscode-extensions-shell]
-    template = "shell/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "shell" ]
+template = "shell/extensions.json"
+extends = "vscode-extensions"
+labels = ["shell"]
 
 [templates.vscode-extensions-swift]
-    template = "swift/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "swift" ]
+template = "swift/extensions.json"
+extends = "vscode-extensions"
+labels = ["swift"]
 
 [templates.vscode-extensions-toml]
-    template = "toml/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "toml" ]
+template = "toml/extensions.json"
+extends = "vscode-extensions"
+labels = ["toml"]
 
 [templates.vscode-extensions-web]
-    template = "web/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "web" ]
+template = "web/extensions.json"
+extends = "vscode-extensions"
+labels = ["web"]
 
 [templates.vscode-extensions-yaml]
-    template = "yaml/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "yaml" ]
+template = "yaml/extensions.json"
+extends = "vscode-extensions"
+labels = ["yaml"]
 
 [templates.vscode-extensions-xml]
-    template = "xml/extensions.json"
-    extends = "vscode-extensions"
-    labels = [ "xml" ]
+template = "xml/extensions.json"
+extends = "vscode-extensions"
+labels = ["xml"]
 
 #! Git
 [templates.gitattributes-common]
-    template = "common/template.gitattributes"
-    extends = "gitattributes"
-    labels = [ "common" ]
+template = "common/template.gitattributes"
+extends = "gitattributes"
+labels = ["common"]
 
 [templates.gitattributes-unity]
-    template = "unity/template.gitattributes"
-    extends = "gitattributes"
-    labels = [ "unity" ]
+template = "unity/template.gitattributes"
+extends = "gitattributes"
+labels = ["unity"]
 
 [templates.gitignore-common]
-    template = "common/template.gitignore"
-    extends = "gitignore"
-    labels = [ "common" ]
+template = "common/template.gitignore"
+extends = "gitignore"
+labels = ["common"]
 
 [templates.gitignore-apps]
-    template = "apps/template.gitignore"
-    extends = "gitignore"
-    labels = [ "apps" ]
+template = "apps/template.gitignore"
+extends = "gitignore"
+labels = ["apps"]
 
 [templates.gitignore-cpp]
-    template = "cpp/template.gitignore"
-    extends = "gitignore"
-    labels = [ "cpp" ]
+template = "cpp/template.gitignore"
+extends = "gitignore"
+labels = ["cpp"]
 
 [templates.gitignore-dart]
-    template = "dart/template.gitignore"
-    extends = "gitignore"
-    labels = [ "dart" ]
+template = "dart/template.gitignore"
+extends = "gitignore"
+labels = ["dart"]
 
 [templates.gitignore-documentation]
-    template = "documentation/template.gitignore"
-    extends = "gitignore"
-    labels = [ "documentation" ]
+template = "documentation/template.gitignore"
+extends = "gitignore"
+labels = ["documentation"]
 
 [templates.gitignore-firebase]
-    template = "firebase/template.gitignore"
-    extends = "gitignore"
-    labels = [ "firebase" ]
+template = "firebase/template.gitignore"
+extends = "gitignore"
+labels = ["firebase"]
 
 [templates.gitignore-go]
-    template = "go/template.gitignore"
-    extends = "gitignore"
-    labels = [ "go" ]
+template = "go/template.gitignore"
+extends = "gitignore"
+labels = ["go"]
 
 [templates.gitignore-java]
-    template = "java/template.gitignore"
-    extends = "gitignore"
-    labels = [ "java" ]
+template = "java/template.gitignore"
+extends = "gitignore"
+labels = ["java"]
 
 [templates.gitignore-javascript]
-    template = "javascript/template.gitignore"
-    extends = "gitignore"
-    labels = [ "javascript" ]
+template = "javascript/template.gitignore"
+extends = "gitignore"
+labels = ["javascript"]
 
 [templates.gitignore-jupyter]
-    template = "jupyter/template.gitignore"
-    extends = "gitignore"
-    labels = [ "jupyter" ]
+template = "jupyter/template.gitignore"
+extends = "gitignore"
+labels = ["jupyter"]
 
 [templates.gitignore-kotlin]
-    template = "kotlin/template.gitignore"
-    extends = "gitignore"
-    labels = [ "kotlin" ]
+template = "kotlin/template.gitignore"
+extends = "gitignore"
+labels = ["kotlin"]
 
 [templates.gitignore-lua]
-    template = "lua/template.gitignore"
-    extends = "gitignore"
-    labels = [ "lua" ]
+template = "lua/template.gitignore"
+extends = "gitignore"
+labels = ["lua"]
 
 [templates.gitignore-mcu]
-    template = "mcu/template.gitignore"
-    extends = "gitignore"
-    labels = [ "mcu" ]
+template = "mcu/template.gitignore"
+extends = "gitignore"
+labels = ["mcu"]
 
 [templates.gitignore-pkl]
-    template = "pkl/template.gitignore"
-    extends = "gitignore"
-    labels = [ "pkl" ]
+template = "pkl/template.gitignore"
+extends = "gitignore"
+labels = ["pkl"]
 
 [templates.gitignore-python]
-    template = "python/template.gitignore"
-    extends = "gitignore"
-    labels = [ "python" ]
+template = "python/template.gitignore"
+extends = "gitignore"
+labels = ["python"]
 
 [templates.gitignore-rust]
-    template = "rust/template.gitignore"
-    extends = "gitignore"
-    labels = [ "rust" ]
+template = "rust/template.gitignore"
+extends = "gitignore"
+labels = ["rust"]
 
 [templates.gitignore-swift]
-    template = "swift/template.gitignore"
-    extends = "gitignore"
-    labels = [ "swift" ]
+template = "swift/template.gitignore"
+extends = "gitignore"
+labels = ["swift"]

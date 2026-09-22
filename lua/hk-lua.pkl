@@ -1,5 +1,5 @@
-import "../version.pkl" as version
 import "../hk.pkl" as hk
+import "../version.pkl" as version
 
 format: Mapping<String, hk.Step> = new {
   ["[format] lua"] = (version.Builtins.stylua) {

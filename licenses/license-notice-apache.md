@@ -1,9 +1,3 @@
-# Configs
-
-This repo contains all of Quasiflo's configuration templates, set up to be used with [Templatry](https://github.com/Quasiflo/templatry). These are the sane defaults used across basically all projects, and hence remove a LOT of configuration duplication!
-
-These configs aim to be sane but thorough setups, useful for all the tools, platforms & languages we use most. They do change from time to time, usually from a gripe/issue with a consuming project's linting or formatting, from which we will apply the fix here and have it standardized everywhere. If you've come from contributing to one of our projects, feel free to make a PR, we love support!
-
 ## License
 
 This repository is licensed under the Apache License 2.0.

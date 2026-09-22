@@ -1,6 +1,6 @@
 {
-    "recommendations": [
-        "exiasr.hadolint",
-        "ms-azuretools.vscode-containers"
-    ]
+  "recommendations": [
+    "exiasr.hadolint",
+    "ms-azuretools.vscode-containers"
+  ]
 }

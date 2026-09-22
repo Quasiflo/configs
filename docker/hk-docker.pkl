@@ -1,5 +1,5 @@
-import "../version.pkl" as version
 import "../hk.pkl" as hk
+import "../version.pkl" as version
 
 lint: Mapping<String, hk.Step> = new {
   ["[lint] dockerfile"] = (version.Builtins.hadolint) {

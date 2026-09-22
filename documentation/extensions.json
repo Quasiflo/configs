@@ -1,7 +1,7 @@
 {
-    "recommendations": [
-        "bierner.github-markdown-preview",
-        "rvben.rumdl",
-        "vstirbu.vscode-mermaid-preview"
-    ]
+  "recommendations": [
+    "bierner.github-markdown-preview",
+    "rvben.rumdl",
+    "vstirbu.vscode-mermaid-preview"
+  ]
 }

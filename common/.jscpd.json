@@ -1,5 +1,7 @@
 {
   "ignore": [
     "**/CHANGELOG.md"
-  ]
+  ],
+  "min-tokens": 100,
+  "mode": "weak"
 }

@@ -1,7 +1,7 @@
 {
-    "recommendations": [
-        "dart-code.dart-code",
-        "dart-code.flutter",
-        "felixangelov.bloc"
-    ]
+  "recommendations": [
+    "dart-code.dart-code",
+    "dart-code.flutter",
+    "felixangelov.bloc"
+  ]
 }

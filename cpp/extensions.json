@@ -1,9 +1,9 @@
 {
-    "recommendations": [
-        "bazelbuild.vscode-bazel",
-        "bbenoist.doxygen",
-        "cschlosser.doxdocgen",
-        "llvm-vs-code-extensions.vscode-clangd",
-        "twxs.cmake"
-    ]
+  "recommendations": [
+    "bazelbuild.vscode-bazel",
+    "bbenoist.doxygen",
+    "cschlosser.doxdocgen",
+    "llvm-vs-code-extensions.vscode-clangd",
+    "twxs.cmake"
+  ]
 }

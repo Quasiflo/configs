@@ -1,6 +1,6 @@
 {
-    "recommendations": [
-        "platformio.platformio-ide",
-        "ms-vscode.hexeditor"
-    ]
+  "recommendations": [
+    "platformio.platformio-ide",
+    "ms-vscode.hexeditor"
+  ]
 }

@@ -7,4 +7,4 @@ trustedRegistries:
   - ghcr.io
   - "*.gcr.io"
   - mcr.microsoft.com
-  - quay.io 
+  - quay.io

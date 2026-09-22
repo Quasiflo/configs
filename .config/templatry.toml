@@ -1,0 +1,3 @@
+[source]
+path = "."  # Use our own configs
+enable_labels = ["json", "license", "pkl", "shell", "toml", "yaml"]
