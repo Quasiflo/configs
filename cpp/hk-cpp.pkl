@@ -1,0 +1,35 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] c++"] {
+    glob =
+      List(
+        "**/*.c",
+        "**/*.h",
+        "**/*.cpp",
+        "**/*.hpp",
+        "**/*.cc",
+        "**/*.hh",
+        "**/*.cxx",
+        "**/*.hxx",
+      )
+    check = "clang-tidy --config-file=.config/generated/.clang-tidy -p build/ {{ files }}"
+    fix = "clang-tidy --config-file=.config/generated/.clang-tidy -p build/ --fix {{ files }}"
+  }
+}
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] c++"] = (version.Builtins.clang_format) {
+    check = "clang-format --style=file:.config/generated/.clang-format --dry-run -Werror {{ files }}"
+    fix = "clang-format --style=file:.config/generated/.clang-format -i {{ files }}"
+  }
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] cppcheck"] {
+    types = List("c++")
+    check =
+      "cppcheck --error-exitcode=1 --enable=warning,style,performance --inline-suppr {{ files }}"
+  }
+}

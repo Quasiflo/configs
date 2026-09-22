@@ -1,0 +1,6 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] openAPI"] = version.Builtins.vacuum
+}

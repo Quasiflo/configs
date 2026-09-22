@@ -1,0 +1,11 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] kotlin"] {
+    glob = List("**/*.kt", "**/*.kts")
+    check = "detekt-cli --config .config/generated/detekt.yml --input $(cat)"
+    fix = "detekt-cli --config .config/generated/detekt.yml --input $(cat) --auto-correct"
+    stdin = " {{ files_list | join(sep=',') }} "
+  }
+}

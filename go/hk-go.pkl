@@ -1,0 +1,14 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] go"] = version.Builtins.golangci_lint
+}
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] go"] = version.Builtins.gomod_tidy
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] go"] = version.Builtins.go_vuln_check
+}

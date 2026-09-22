@@ -1,0 +1,9 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] github actions"] = (version.Builtins.zizmor) {
+    check_diff = "zizmor --pedantic --no-progress {{ files }}"
+    fix = "zizmor --pedantic --fix {{ files }}"
+  }
+}

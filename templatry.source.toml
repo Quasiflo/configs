@@ -16,6 +16,16 @@ include_labels = ["common", "documentation"]
     override_file = "template.gitattributes"
     strategy = "append_bottom"
 
+[abstract.hk]
+    strategy = "none"
+
+[abstract.vscode-extensions]
+    generated_dir = ".vscode/"
+    generated_file = "extensions.json"
+    override_dir = ".vscode/"
+    override_file = "extensions.template.json"
+    strategy = "merge_json"
+
 [abstract.vscode-settings]
     generated_dir = ".vscode/"
     generated_file = "settings.json"
@@ -54,13 +64,6 @@ include_labels = ["common", "documentation"]
         "swift.path",
     ]
     backprop_ignore_values = ["files.exclude.*"]
-    strategy = "merge_json"
-
-[abstract.vscode-extensions]
-    generated_dir = ".vscode/"
-    generated_file = "extensions.json"
-    override_dir = ".vscode/"
-    override_file = "extensions.template.json"
     strategy = "merge_json"
 
 #! Templates
@@ -175,6 +178,117 @@ include_labels = ["common", "documentation"]
     template = "shell/check-strict-lint.sh"
     strategy = "none"
     labels = [ "shell" ]
+
+#! HK
+[templates.hk-common]
+    template = "common/hk-common.pkl"
+    extends = "hk"
+    labels = [ "common" ]
+
+[templates.hk-cpp]
+    template = "cpp/hk-cpp.pkl"
+    extends = "hk"
+    labels = [ "cpp" ]
+
+[templates.hk-dart]
+    template = "dart/hk-dart.pkl"
+    extends = "hk"
+    labels = [ "dart" ]
+
+[templates.hk-docker]
+    template = "docker/hk-docker.pkl"
+    extends = "hk"
+    labels = [ "docker" ]
+
+[templates.hk-documentation]
+    template = "documentation/hk-documentation.pkl"
+    extends = "hk"
+    labels = [ "documentation" ]
+
+[templates.hk-github]
+    template = "github/hk-github.pkl"
+    extends = "hk"
+    labels = [ "github" ]
+
+[templates.hk-go]
+    template = "go/hk-go.pkl"
+    extends = "hk"
+    labels = [ "go" ]
+
+[templates.hk-javascript]
+    template = "javascript/hk-javascript.pkl"
+    extends = "hk"
+    labels = [ "javascript" ]
+
+[templates.hk-json]
+    template = "json/hk-json.pkl"
+    extends = "hk"
+    labels = [ "json" ]
+
+[templates.hk-kotlin]
+    template = "kotlin/hk-kotlin.pkl"
+    extends = "hk"
+    labels = [ "kotlin" ]
+
+[templates.hk-license]
+    template = "license/hk-license.pkl"
+    extends = "hk"
+    labels = [ "license" ]
+
+[templates.hk-lua]
+    template = "lua/hk-lua.pkl"
+    extends = "hk"
+    labels = [ "lua" ]
+
+[templates.hk-openapi]
+    template = "openapi/hk-openapi.pkl"
+    extends = "hk"
+    labels = [ "openapi" ]
+
+[templates.hk-pkl]
+    template = "pkl/hk-pkl.pkl"
+    extends = "hk"
+    labels = [ "pkl" ]
+
+[templates.hk-python]
+    template = "python/hk-python.pkl"
+    extends = "hk"
+    labels = [ "python" ]
+
+[templates.hk-rust]
+    template = "rust/hk-rust.pkl"
+    extends = "hk"
+    labels = [ "rust" ]
+
+[templates.hk-shell]
+    template = "shell/hk-shell.pkl"
+    extends = "hk"
+    labels = [ "shell" ]
+
+[templates.hk-swift]
+    template = "swift/hk-swift.pkl"
+    extends = "hk"
+    labels = [ "swift" ]
+
+[templates.hk-toml]
+    template = "toml/hk-toml.pkl"
+    extends = "hk"
+    labels = [ "toml" ]
+
+[templates.hk-web]
+    template = "web/hk-web.pkl"
+    extends = "hk"
+    labels = [ "web" ]
+
+[templates.hk-xml]
+    template = "xml/hk-xml.pkl"
+    extends = "hk"
+    labels = [ "xml" ]
+
+[templates.hk-yaml]
+    template = "yaml/hk-yaml.pkl"
+    extends = "hk"
+    labels = [ "yaml" ]
 
 #! VSCode
 [templates.vscode-settings-common]

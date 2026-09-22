@@ -1,0 +1,31 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] markdown"] = (version.Builtins.rumdl) {
+    exclude = List("**/CHANGELOG.md")
+    check_diff = "rumdl --config .config/generated/rumdl.toml check --diff {{ files }}"
+    fix = "rumdl --config .config/generated/rumdl.toml check --fix {{ files }}"
+  }
+}
+
+lint: Mapping<String, hk.Step> = new {
+  // ["[lint] spelling"] { // TODO enable once cspell reviewed
+  //   glob = List("**/*")
+  //   check = "cspell lint --config .config/generated/cspell.yml --no-progress --no-must-find-files {{ files }}"
+  // }
+  ["[lint] urls"] = (version.Builtins.lychee) {
+    exclude =
+      List(
+        "**/lychee.toml",
+        ".github/workflows/**",
+        "**/renovate.json",
+        "**/renovate.json5",
+        "**/mise.toml",
+        "**/.mise.toml",
+        "**/*.lock",
+        "**/*.xml",
+      )
+    check = "lychee --no-progress --cache --config .config/generated/lychee.toml {{ files }}"
+  }
+}

@@ -1,0 +1,18 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] javascript"] = (version.Builtins.ox_lint) {
+    check = "oxlint --config .config/generated/.oxlintrc.jsonc {{ files }}"
+    fix = "oxlint --config .config/generated/.oxlintrc.jsonc --fix {{ files }}"
+  }
+}
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] javascript"] {
+    glob = List("**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx")
+    check = "oxfmt --config .config/generated/.oxfmtrc.jsonc --check {{ files }}"
+    fix = "oxfmt --config .config/generated/.oxfmtrc.jsonc --write {{ files }}"
+  }
+  ["[format] package-json"] = version.Builtins.sort_package_json
+}

@@ -1,0 +1,44 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] json"] {
+    glob = "**/*.json"
+    exclude =
+      List("**/*-lock.json", "**/.vscode/settings.json", "**/jsconfig.json", "**/package.json")
+    check_diff =
+      """
+        for f in {{ files }}; do
+          expected=$(yq --input-format=json --output-format=json 'sort_keys(..)' "$f") || exit 1
+          printf '%s\n' "$expected" | diff -u "$f" - || exit 1
+        done
+      """
+    fix =
+      """
+        for f in {{ files }}; do
+          yq --inplace --input-format=json --output-format=json 'sort_keys(..)' "$f" || exit 1
+        done
+      """
+  }
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] jsonc"] {
+    glob = List("**/*.jsonc")
+    check_diff =
+      """
+        for f in {{ files }}; do
+          json5 "$f" > /dev/null || exit 1
+        done
+      """
+  }
+  ["[lint] json5"] {
+    glob = "**/*.json5"
+    check_diff =
+      """
+        for f in {{ files }}; do
+          json5 "$f" > /dev/null || exit 1
+        done
+      """
+  }
+}

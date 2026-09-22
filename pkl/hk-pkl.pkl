@@ -1,0 +1,10 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] pkl"] = version.Builtins.pkl_format
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] pkl"] = version.Builtins.pkl
+}

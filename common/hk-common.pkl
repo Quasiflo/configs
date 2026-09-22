@@ -1,0 +1,87 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] mise"] = version.Builtins.mise
+  ["[fix] mise lock"] {
+    glob = version.Builtins.mise.glob
+    check =
+      "echo \"\\033[0;33mMise files have changed! Ensure to run \\\"mise lock\\\"\\033[0m\" >&2"
+  }
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] file extensions"] {
+    glob = List("**/*")
+    batch = true
+    exclude =
+      List(
+        "**/LICENSE",
+        "**/dockerfile",
+        "**/dockerfile.*",
+        "**/Dockerfile",
+        "**/Dockerfile.*",
+        "**/CODEOWNERS",
+        "**/bin/**",
+      )
+    check =
+      """
+      fail=0
+      for f in {{ files }}; do
+        base="${f##*/}"
+        ext="${base##*.}"
+
+        if [ "$ext" = "$base" ]; then
+          echo "missing extension: $f"
+          fail=1
+          continue
+        fi
+
+        lower=$(printf '%s' "$ext" | tr '[:upper:]' '[:lower:]')
+        if [ "$ext" != "$lower" ]; then
+          echo "extension not lowercase: $f"
+          fail=1
+        fi
+      done
+      exit $fail
+      """
+  }
+  ["[lint] mise tools"] {
+    glob = version.Builtins.mise.glob
+    check = ".config/generated/mise-backend-lint.sh {{ files }}"
+  }
+  ["[lint] file size"] = (version.Builtins.check_added_large_files) {
+    check = "hk util check-added-large-files --maxkb 10240 {{ files }}"
+  }
+  ["[lint] case conflict"] = version.Builtins.check_case_conflict
+  ["[lint] shebangs"] = version.Builtins.check_executables_have_shebangs
+  ["[lint] merge conflict"] = version.Builtins.check_merge_conflict
+  ["[lint] symlinks"] = version.Builtins.check_symlinks
+  ["[lint] private keys"] = version.Builtins.detect_private_key
+  ["[lint] secrets"] = (version.Builtins.kingfisher) {
+    exclude = List("**/CHANGELOG.md")
+  }
+  ["[lint] naming"] {
+    glob = List("**/*")
+    check = "ls-lint --config .config/generated/.ls-lint.yml"
+  }
+  ["[lint] copy-paste"] {
+    glob = List("**/*")
+    check = "jscpd --exit-code=1 --config .config/generated/.jscpd.json {{ files }}"
+  }
+}
+
+common: Mapping<String, hk.Step> = new {
+  ["[common] byte order marker"] = version.Builtins.byte_order_marker
+  ["[common] smart quotes"] = version.Builtins.fix_smart_quotes
+  ["[common] line ending"] = version.Builtins.mixed_line_ending
+  ["[common] eof newlines"] = version.Builtins.newlines
+  ["[common] trailing whitespace"] = version.Builtins.trailing_whitespace
+  ["[common] todos"] {
+    glob = List("**/*")
+    exclude = List("**/TODO.md")
+    profiles = List("main")
+    check =
+      "grep -iE '(//|#|--|/\\*|;).*(TODO|FIXME)' {{ files }} | grep -ivE '#[0-9]+|[A-Z][A-Z0-9]+-[0-9]+|/(issues|pull|merge_requests)/[0-9]+|hk-ignore' && exit 1 || exit 0" // Find all TODO markers that aren't marked with an issue or "hk-ignore"
+  }
+}

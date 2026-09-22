@@ -1,0 +1,14 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] shell"] = version.Builtins.shfmt
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] shell"] = version.Builtins.shellcheck
+  ["[lint] shell strict mode"] {
+    types = List("shell")
+    check = ".config/generated/check-strict-lint.sh {{ files }}"
+  }
+}

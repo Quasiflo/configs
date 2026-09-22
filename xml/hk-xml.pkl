@@ -1,0 +1,6 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] xml"] = version.Builtins.xmllint
+}

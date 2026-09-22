@@ -1,0 +1,14 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] rust"] = version.Builtins.cargo_clippy
+}
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] rust"] = version.Builtins.cargo_fmt
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] cargo"] = version.Builtins.cargo_deny
+}

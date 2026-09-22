@@ -1,0 +1,5 @@
+// * HK - Git Hook Configuration
+// This file ensures you are committing properly linted and formatted files which will pass ci
+//! Note! Typically this file would be in .config/ but is here in this repo so subfolder hk-*.pkl files can resolve the ../hk.pkl import correctly for developing
+
+amends "package://github.com/jdx/hk/releases/download/v1.58.1/hk@1.58.1#/Config.pkl"

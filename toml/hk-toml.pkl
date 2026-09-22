@@ -1,0 +1,16 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] toml"] = (version.Builtins.tombi_format) {
+    check = "tombi format --check --diff --quiet {{ files }}"
+    fix = "tombi format --quiet {{ files }}"
+    exclude = version.Builtins.mise.glob
+  }
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] toml"] = (version.Builtins.tombi) {
+    exclude = version.Builtins.mise.glob
+  }
+}

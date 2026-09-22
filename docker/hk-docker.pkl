@@ -1,0 +1,9 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] dockerfile"] = (version.Builtins.hadolint) {
+    glob = List("**/Dockerfile")
+    check = "hadolint --config .config/generated/.hadolint.yaml {{ files }}"
+  }
+}

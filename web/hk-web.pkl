@@ -1,0 +1,16 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] css"] = (version.Builtins.stylelint) {
+    check = "stylelint --config .config/generated/.stylelintrc.json {{ files }}"
+    fix = "stylelint --config .config/generated/.stylelintrc.json --fix {{ files }}"
+  }
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] html"] {
+    glob = List("**/*.htm", "**/*.html")
+    check = "htmlhint --config .config/generated/.htmlhintrc {{ files }}"
+  }
+}

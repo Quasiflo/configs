@@ -1,0 +1,62 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] license"] {
+    // no glob = doesn't filter/depend on changed files; runs every invocation
+    check =
+      """
+      reference="LICENSE"
+      if [ ! -f "LICENSE" ]; then
+        echo "Missing LICENSE file at repo root"
+        exit 1
+      fi
+      if ! diff -q "LICENSE" "$reference" > /dev/null 2>&1; then
+        echo "LICENSE does not match reference ($reference)"
+        diff -u "$reference" "LICENSE" || true
+        exit 1
+      fi
+      """
+    fix =
+      """
+      reference="LICENSE"
+      cp "$reference" "LICENSE"
+      """
+  }
+  ["[fix] markdown license"] {
+    check =
+      """
+      notice=".config/generated/license-notice-apache.md"
+      readme="README.md"
+
+      if [ ! -f "$readme" ]; then
+        echo "Missing $readme"
+        exit 1
+      fi
+
+      notice_flat=$(tr '\\n' '\\1' < "$notice")
+      readme_flat=$(tr '\\n' '\\1' < "$readme")
+
+      case "$readme_flat" in
+        *"$notice_flat"*) exit 0 ;;
+        *) echo "$readme is missing the contents of $notice"; exit 1 ;;
+      esac
+      """
+    fix =
+      """
+      notice=".config/generated/license-notice-apache.md"
+      readme="README.md"
+
+      notice_flat=$(tr '\\n' '\\1' < "$notice")
+      readme_flat=$(tr '\\n' '\\1' < "$readme")
+
+      case "$readme_flat" in
+        *"$notice_flat"*) ;;  # already present, nothing to do
+        *)
+          printf '\\n' >> "$readme"
+          cat "$notice" >> "$readme"
+          ;;
+      esac
+      """
+  }
+}

@@ -1,0 +1,16 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] lua"] = (version.Builtins.stylua) {
+    check = "stylua --config-path .config/generated/stylua.toml --check {{ files }}"
+    fix = "stylua --config-path .config/generated/stylua.toml {{ files }}"
+  }
+}
+
+lint: Mapping<String, hk.Step> = new {
+  ["[lint] lua"] {
+    glob = "**/*.lua"
+    check = "lua-language-server --check --checklevel=Information ."
+  }
+}

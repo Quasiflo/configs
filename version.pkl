@@ -1,0 +1,4 @@
+//! This version file copy is just for editor support while editing the templates - consumers are required to have their own copy with appropriate hk version alongside their hk.pkl file
+import "package://github.com/jdx/hk/releases/download/v2.0.1/hk@2.0.1#/Builtins.pkl" as _builtins
+
+hidden const Builtins = _builtins // Export for submodules to use and resolve same version

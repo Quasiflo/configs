@@ -1,0 +1,14 @@
+import "../version.pkl" as version
+import "../hk.pkl" as hk
+
+fix: Mapping<String, hk.Step> = new {
+  ["[fix] swift"] = version.Builtins.swiftlint
+}
+
+format: Mapping<String, hk.Step> = new {
+  ["[format] swift"] {
+    glob = List("**/*.swift")
+    check = "swiftformat --lint {{ files }}"
+    fix = "swiftformat {{ files }}"
+  }
+}
