@@ -1,5 +1,5 @@
-import "../version.pkl" as version
 import "../hk.pkl" as hk
+import "../version.pkl" as version
 
 fix: Mapping<String, hk.Step> = new {
   ["[fix] markdown"] = (version.Builtins.rumdl) {
@@ -15,16 +15,19 @@ lint: Mapping<String, hk.Step> = new {
   //   check = "cspell lint --config .config/generated/cspell.yml --no-progress --no-must-find-files {{ files }}"
   // }
   ["[lint] urls"] = (version.Builtins.lychee) {
-    exclude =
+    glob =
       List(
-        "**/lychee.toml",
-        ".github/workflows/**",
-        "**/renovate.json",
-        "**/renovate.json5",
-        "**/mise.toml",
-        "**/.mise.toml",
-        "**/*.lock",
-        "**/*.xml",
+        "**/*.md",
+        "**/*.mdx",
+        "**/*.markdown",
+        "**/*.mkd",
+        "**/*.mdown",
+        "**/*.html",
+        "**/*.htm",
+        "**/*.rst",
+        "**/*.adoc",
+        "**/*.asciidoc",
+        "**/*.txt",
       )
     check = "lychee --no-progress --cache --config .config/generated/lychee.toml {{ files }}"
   }
