@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>Quasiflo/configs//renovate/renovate.json5", // No need to pin a version for our own repo
+  ],
+}

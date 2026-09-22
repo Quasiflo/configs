@@ -51,6 +51,19 @@
         "$each(tool_alias ?? {}, function($aliasTarget, $name) { { \"depName\": $name, \"packageName\": $substringAfter($aliasTarget, \"github:\"), \"currentValue\": $lookup(tools, $name).version, \"extractVersion\": \"^\" & $lookup(tools, $name).version_prefix & \"(?<version>.+)$\", \"datasource\": \"github-releases\" } })"
       ]
     },
+    { // Update dependencies in .pkl files, currently only for HK
+      "autoReplaceStringTemplate": "package://github.com/{{{packageName}}}/releases/download/v{{{newValue}}}/{{{depName}}}@{{{newValue}}}#",
+      "customType": "regex",
+      "datasourceTemplate": "github-releases",
+      "description": "Update imported github pkl packages in .pkl files",
+      "managerFilePatterns": [
+        "**/*.pkl"
+      ],
+      "matchStrings": [
+        "package:\\/\\/github.com\\/(?<packageName>[^/]+\\/[^/]+)\\/releases\\/download\\/v(?<currentValue>[^/]+)\\/(?<depName>[^\\s]+)@(?<currentValueCopy>[^/]+)#"
+      ],
+      "versioningTemplate": "semver"
+    }
   ],
   "dependencyDashboardOSVVulnerabilitySummary": "all",
   "extends": [
@@ -115,6 +128,12 @@
         "mise"
       ],
       "versioning": "semver-partial"
+    },
+    { // Ensure HK gets bumped in .pkl files at the same time as in mise
+      "groupName": "hk",
+      "matchPackageNames": [
+        "jdx/hk"
+      ]
     },
     {
       "extractVersion": "^lychee-v?(?<version>.+)$",

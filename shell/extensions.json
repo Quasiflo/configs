@@ -1,8 +1,8 @@
 {
-    "recommendations": [
-        "foxundermoon.shell-format",
-        "mads-hartmann.bash-ide-vscode",
-        "remisa.shellman",
-        "timonwong.shellcheck"
-    ]
+  "recommendations": [
+    "foxundermoon.shell-format",
+    "mads-hartmann.bash-ide-vscode",
+    "remisa.shellman",
+    "timonwong.shellcheck"
+  ]
 }
