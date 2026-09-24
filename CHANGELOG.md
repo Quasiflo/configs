@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/Quasiflo/configs/compare/v0.2.0...v0.2.1) (2026-09-24)
+
+
+### Bug Fixes
+
+* adjust templatry regex manager for automatic updates ([edda64c](https://github.com/Quasiflo/configs/commit/edda64ce99a955854521e225449633e3dcacf1be))
+* remove redundant regex renovate updater ([7b9110f](https://github.com/Quasiflo/configs/commit/7b9110fa5e6faf99ceee0c975361340e3cdf2e8d))
+
 ## [0.2.0](https://github.com/Quasiflo/configs/compare/v0.1.0...v0.2.0) (2026-09-24)
 
 
