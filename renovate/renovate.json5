@@ -15,21 +15,21 @@
     }
   },
   "customManagers": [
-    { // Update renovate templates (ie this one) that gets extended by clients
+    {
       "customType": "regex",
       "datasourceTemplate": "github-releases",
-      "description": "Update any renovate github extends version tag",
-      "extractVersionTemplate": "^{{{ depName }}}-v?(?<version>.+)$",
+      "description": "Update pinned renovate presets",
       "managerFilePatterns": [
         "**/renovate.json5"
       ],
       "matchStrings": [
-        ">(?<packageName>[^/]+/[^/]+)//[^#(\\s]+(?:#(?<depName>[a-zA-Z][a-zA-Z0-9-]*?)-v(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+[^\"'\\s(]*))?(?:\\([^)]+\\))?"
+        ">(?<packageName>[^/\\s]+/[^/\\s]+)//[^#\\s\"']+#v?(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+[^\"'\\s)]*)"
       ],
       "packageNameTemplate": "{{{ packageName }}}",
-      "versioningTemplate": "semver"
+      "versioningTemplate": "semver",
+      "extractVersionTemplate": "^v?(?<version>.+)$"
     },
-    {
+    { // Update tools defined in mise using a http backend (requires matching custom datasource from above)
       "customType": "jsonata",
       "fileFormat": "toml",
       "managerFilePatterns": [
@@ -50,6 +50,22 @@
       "matchStrings": [
         "$each(tool_alias ?? {}, function($aliasTarget, $name) { { \"depName\": $name, \"packageName\": $substringAfter($aliasTarget, \"github:\"), \"currentValue\": $lookup(tools, $name).version, \"extractVersion\": \"^\" & $lookup(tools, $name).version_prefix & \"(?<version>.+)$\", \"datasource\": \"github-releases\" } })"
       ]
+    },
+    { // Update Templatry template versions from source releases
+      customType: 'jsonata',
+      description: 'Update templatry github source refs',
+      fileFormat: 'toml',
+      managerFilePatterns: [
+        '(^|/)templatry\\.toml$'
+      ],
+      matchStrings: [
+        // Singular `[source]` table.
+        'source[$type(github) = "string" and $type(ref) = "string"].{"depName": github, "packageName": github, "currentValue": ref}',
+        // Plural `[source.<name>]` tables.
+        '$each(source, function($v, $k) {{"name": $k, "cfg": $v}})[$type(cfg) = "object" and $type(cfg.github) = "string" and $type(cfg.ref) = "string"].{"depName": name, "packageName": cfg.github, "currentValue": cfg.ref}',
+      ],
+      datasourceTemplate: 'github-releases',
+      versioningTemplate: 'semver',
     },
     { // Update dependencies in .pkl files, currently only for HK
       "autoReplaceStringTemplate": "package://github.com/{{{packageName}}}/releases/download/v{{{newValue}}}/{{{depName}}}@{{{newValue}}}#",
@@ -90,8 +106,8 @@
   },
   "osvVulnerabilityAlerts": true,
   "packageRules": [
-    {
-      "groupName": "{{manager}} Dependencies", // Group deps by manager
+    { // Group deps by manager
+      "groupName": "{{manager}} Dependencies",
       "matchManagers": [
         "*"
       ]
@@ -110,11 +126,13 @@
       "minimumReleaseAge": "4 days"
     },
     {
-      "matchSourceUrls": ["https://github.com/Quasiflo/**"],
+      "matchSourceUrls": [
+        "https://github.com/Quasiflo/**"
+      ],
       "minimumReleaseAge": 0
     },
-    {
-      "groupName": "FRB Dependencies", // Ensure all flutter_rust_bridge deps maintain identical version
+    { // Ensure all flutter_rust_bridge deps maintain identical version
+      "groupName": "FRB Dependencies",
       "matchDepNames": [
         "flutter_rust_bridge",
         "flutter_rust_bridge_hooks",
@@ -128,6 +146,20 @@
         "mise"
       ],
       "versioning": "semver-partial"
+    },
+    {
+      "description": "Automerge minor/patch updates",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    },
+    { // Additional branch prefix allows targeted CI updates for templated config generation & re-linting
+      "matchFileNames": [
+        "**/templatry.toml"
+      ],
+      "additionalBranchPrefix": "ci/templatry/"
     },
     { // Ensure HK gets bumped in .pkl files at the same time as in mise
       "groupName": "hk",
