@@ -42,7 +42,7 @@
       description: 'Update templatry github source refs',
       fileFormat: 'toml',
       managerFilePatterns: [
-        '(^|/)templatry\\.toml$'
+        '**/templatry.toml'
       ],
       matchStrings: [
         // Singular `[source]` table.
@@ -52,6 +52,7 @@
       ],
       datasourceTemplate: 'github-releases',
       versioningTemplate: 'semver',
+      extractVersionTemplate: '^v?(?<version>.+)$',
     },
     { // Update dependencies in .pkl files, currently only for HK
       "autoReplaceStringTemplate": "package://github.com/{{{packageName}}}/releases/download/v{{{newValue}}}/{{{depName}}}@{{{newValue}}}#",
@@ -119,7 +120,7 @@
       "matchSourceUrls": [
         "https://github.com/Quasiflo/**"
       ],
-      "minimumReleaseAge": 0
+      "minimumReleaseAge": "0 days"
     },
     { // Ensure all flutter_rust_bridge deps maintain identical version
       "groupName": "FRB Dependencies",
