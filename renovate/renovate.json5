@@ -81,6 +81,7 @@
       "versioningTemplate": "semver"
     }
   ],
+  "abandonmentThreshold": "2 years",
   "dependencyDashboardOSVVulnerabilitySummary": "all",
   "extends": [
     "config:best-practices",
