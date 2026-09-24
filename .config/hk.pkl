@@ -1,61 +1,25 @@
 // * HK - Git Hook Configuration
 // This file ensures you are committing properly linted and formatted files which will pass ci
-//! Note! Typically this file would be in .config/ but is here in this repo so subfolder hk-*.pkl files can resolve the ../hk.pkl import correctly for developing
+amends "package://github.com/jdx/hk/releases/download/v2.1.0/hk@2.1.0#/Config.pkl"
 
-amends "package://github.com/jdx/hk/releases/download/v1.58.1/hk@1.58.1#/Config.pkl"
+import "generated/generated.pkl"
 
-// Glob all contribution files
-local generated_steps = import*("generated/hk-*.pkl")
-
-// Helper: collect every generated step for a given category
-local function collect(category: String) = new Group {
-  steps {
-    for (_, contrib in generated_steps) {
-      ...contrib.getPropertyOrNull(category) ?? new Mapping {}
+steps =
+  generated.addSteps((generated.steps) {
+    ["[fix] markdown"] {
+      exclude = generated.steps["[fix] markdown"].exclude + List("licenses/*.md")
     }
-  }
-}
-
-local _steps = new Mapping {
-  ["fix"] = (collect("fix")) {
-    steps {
-      ["[fix] markdown"] {
-        exclude = super.exclude + List("licenses/*.md")
-      }
+    ["[lint] templatry"] {
+      glob = List("**/*")
+      check = "templatry validate"
     }
-  }
-  ["format"] = collect("format")
-  ["lint"] = (collect("lint")) {
-    steps {
-      ["[lint] templatry"] {
-        glob = List("**/*") // Always validate the templatry config
-        check = "templatry validate"
-      }
-      ["[lint] urls"] {
-        exclude = super.exclude + List("licenses/*.md")
-      }
-      ["[lint] file extensions"] {
-        exclude = super.exclude + List("licenses/*")
-      }
-      ["[lint] copy-paste"] {
-        exclude = super.exclude + List("licenses/*.md")
-      }
+    ["[lint] urls"] {
+      exclude = generated.steps["[lint] urls"].exclude + List("licenses/*.md")
     }
-  }
-  ["common"] = collect("common")
-}
-
-hooks { // TODO remove and migrate to new structure once upgraded to HK v2
-  ["pre-commit"] {
-    steps = _steps
-    fix = true
-    stash = true
-  }
-  ["check"] {
-    steps = _steps
-  }
-  ["fix"] {
-    steps = _steps
-    fix = true
-  }
-}
+    ["[lint] file extensions"] {
+      exclude = generated.steps["[lint] file extensions"].exclude + List("licenses/*")
+    }
+    ["[lint] copy-paste"] {
+      exclude = List("licenses/*.md")
+    }
+  })

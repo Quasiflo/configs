@@ -1,7 +1,7 @@
 {
-    "recommendations": [
-        "ecmel.vscode-html-css",
-        "htmlhint.vscode-htmlhint",
-        "ritwickdey.liveserver"
-    ]
+  "recommendations": [
+    "ecmel.vscode-html-css",
+    "htmlhint.vscode-htmlhint",
+    "ritwickdey.liveserver"
+  ]
 }

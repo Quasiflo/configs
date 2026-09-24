@@ -1,7 +1,7 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-fix: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[fix] kotlin"] {
     glob = List("**/*.kt", "**/*.kts")
     check = "detekt-cli --config .config/generated/detekt.yml --input $(cat)"

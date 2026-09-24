@@ -1,15 +1,13 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-fix: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[fix] markdown"] = (version.Builtins.rumdl) {
     exclude = List("**/CHANGELOG.md")
+    check = "rumdl --config .config/generated/rumdl.toml check {{ files }}"
     check_diff = "rumdl --config .config/generated/rumdl.toml check --diff {{ files }}"
     fix = "rumdl --config .config/generated/rumdl.toml check --fix {{ files }}"
   }
-}
-
-lint: Mapping<String, hk.Step> = new {
   // ["[lint] spelling"] { // TODO enable once cspell reviewed
   //   glob = List("**/*")
   //   check = "cspell lint --config .config/generated/cspell.yml --no-progress --no-must-find-files {{ files }}"

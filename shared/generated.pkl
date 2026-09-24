@@ -1,0 +1,42 @@
+import "../hk.pkl" as hk
+
+local generated = import*("hk-*.pkl")
+
+/// All generated steps, merged into one Mapping.
+steps = new Mapping<String, hk.Step> {
+  for (_, mod in generated) {
+    ...mod.steps
+  }
+}
+
+local function isKnownPrefix(name: String): Boolean =
+  if (
+    name.startsWith("[fix]")
+      || name.startsWith("[format]")
+      || name.startsWith("[lint]")
+      || name.startsWith("[common]")
+  )
+    true
+  else
+    throw("Step \"\(name)\" does not match any known prefix: [fix], [format], [lint], [common]")
+
+local function byPrefix(stepsMap: Mapping<String, hk.Step>, prefix: String) = new Mapping<
+  String,
+  hk.Step,
+> {
+  for (name, step in stepsMap) {
+    ...(
+      if (isKnownPrefix(name) && name.startsWith(prefix))
+        new Mapping<String, hk.Step> { [name] = step }
+      else
+        new Mapping<String, hk.Step> {}
+    )
+  }
+}
+
+function addSteps(stepsMap: Mapping) = new Mapping<String, hk.Step | hk.Group> {
+  ["fix"] = new hk.Group { steps = byPrefix(stepsMap, "[fix]") }
+  ["format"] = new hk.Group { steps = byPrefix(stepsMap, "[format]") }
+  ["lint"] = new hk.Group { steps = byPrefix(stepsMap, "[lint]") }
+  ["common"] = new hk.Group { steps = byPrefix(stepsMap, "[common]") }
+}

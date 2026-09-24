@@ -1,5 +1,5 @@
 {
   "recommendations": [
-    "redhat.vscode-xml"
+    "bazelbuild.vscode-bazel"
   ]
 }

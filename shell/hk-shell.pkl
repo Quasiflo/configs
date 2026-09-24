@@ -1,11 +1,8 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-format: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[format] shell"] = version.Builtins.shfmt
-}
-
-lint: Mapping<String, hk.Step> = new {
   ["[lint] shell"] = version.Builtins.shellcheck
   ["[lint] shell strict mode"] {
     types = List("shell")

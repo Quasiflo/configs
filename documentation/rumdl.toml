@@ -1,6 +1,6 @@
 [global]
 disable = ["MD013"]
-exclude = ["**/CHANGELOG.md", "**/LICENSE"]
+exclude = ["**/CHANGELOG.md", "**/LICENSE", "**/LICENSE-*"]
 extend-enable = ["MD047", "MD060", "MD063", "MD070", "MD072", "MD073", "MD080", "MD082", "MD083", "MD084", "MD085", "MD087"]
 
 [MD060]

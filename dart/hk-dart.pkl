@@ -1,7 +1,7 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-fix: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[fix] pub"] {
     glob = List("**/pubspec.yaml", "**/pubspec.yml")
     check = "dart pub get --dry-run"
@@ -13,18 +13,12 @@ fix: Mapping<String, hk.Step> = new {
     fix = "dart fix --apply"
     depends = List("[fix] pub")
   }
-}
-
-format: Mapping<String, hk.Step> = new {
   ["[format] dart"] {
     glob = List("**/*.dart")
     check = "dart format --output=none --set-exit-if-changed {{ files }}"
     fix = "dart format {{ files }}"
     batch = true
   }
-}
-
-lint: Mapping<String, hk.Step> = new {
   ["[lint] dart"] {
     glob = List("**/*.dart", "**/analysis_options.yaml", "**/pubspec.yaml", "**/pubspec.yml")
     check = "dart analyze --fatal-infos"

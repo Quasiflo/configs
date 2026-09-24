@@ -1,15 +1,12 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-format: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[format] yaml"] = (version.Builtins.yamlfmt) {
     exclude = List("pnpm-lock.yaml", "aube-lock.yaml")
     check = "yamlfmt -conf .config/generated/.yamlfmt -lint {{ files }}"
     fix = "yamlfmt -conf .config/generated/.yamlfmt {{ files }}"
   }
-}
-
-lint: Mapping<String, hk.Step> = new {
   ["[lint] yaml"] = (version.Builtins.yamllint) {
     exclude = List("pnpm-lock.yaml", "aube-lock.yaml")
     check = "yamllint --strict -c .config/generated/.yamllint {{ files }}"

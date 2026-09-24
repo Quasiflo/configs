@@ -6,6 +6,7 @@
     "files.trimTrailingWhitespace": true,
     "files.associations": {
         "LICENSE": "txt",
+        "LICENSE-*": "txt",
         "CODEOWNERS": "txt"
     },
     //! Visuals
@@ -32,7 +33,7 @@
         ".gitignore": ".gitattributes,template.gitignore,template.gitattributes,template.clang-tidy,.clang-tidy,template.clang-format,.clang-format,.swift-version",
         "mise.toml": "mise*.toml,mise*.lock,*miserc.toml",
         "pitchfork.toml": "pitchfork*.toml",
-        "README.md": "REPOSITORY.md,ARCHITECTURE.md,TODO,TODO.md,CONTRIBUTING,CONTRIBUTING.md,CHANGELOG,CHANGELOG.md,AGENTS.md,LICENSE,LICENSE.txt,ROADMAP.md",
+        "README.md": "REPOSITORY.md,ARCHITECTURE.md,TODO,TODO.md,CONTRIBUTING,CONTRIBUTING.md,CHANGELOG,CHANGELOG.md,AGENTS.md,LICENSE,LICENSE.txt,LICENSE-*,ROADMAP.md",
         "firebase.json": ".firebaserc,storage.rules,cors.json",
         "MODULE.bazel": "MODULE.bazel.lock,*.bazelrc,.bazelversion,.bazelignore",
         "pyproject.toml": ".python-version, uv.lock",

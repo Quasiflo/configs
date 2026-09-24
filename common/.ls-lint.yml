@@ -69,16 +69,11 @@ ls:
     .dir: snake_case
   docs/*:
     .dir: snake_case | SCREAMING_SNAKE_CASE
+  .github/*:
+    .dir: lowercase | SCREAMING_SNAKE_CASE
 
 ignore:
-  - .git/**/*
-  - "**/node_modules/**/*"
-  - "**/target/**/*"
-  - build/**/*
-  - "**/.dart_tool/**/*"
-  - "**/.pkl-lsp/**/*"
-  - "**/*.lock"
-  - .config/generated/**/*
-  - "**/bazel-*"
   - "**/Cargo.toml"
-  - "**/.ort-data/**/*"
+  - "**/Cargo.lock"
+  - "**/analysis_options.yaml"
+  - "**/dart_test.yaml"

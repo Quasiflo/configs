@@ -1,7 +1,7 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-fix: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[fix] json"] {
     glob = "**/*.json"
     exclude =
@@ -20,9 +20,6 @@ fix: Mapping<String, hk.Step> = new {
         done
       """
   }
-}
-
-lint: Mapping<String, hk.Step> = new {
   ["[lint] jsonc"] {
     glob = List("**/*.jsonc")
     check_diff =

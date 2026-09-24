@@ -1,7 +1,7 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-fix: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[fix] license"] {
     // no glob = doesn't filter/depend on changed files; runs every invocation
     check =
@@ -16,11 +16,6 @@ fix: Mapping<String, hk.Step> = new {
         diff -u "$reference" "LICENSE" || true
         exit 1
       fi
-      """
-    fix =
-      """
-      reference="LICENSE"
-      cp "$reference" "LICENSE"
       """
   }
   ["[fix] markdown license"] {

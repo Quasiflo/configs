@@ -1,5 +1,5 @@
 [default]
-include_labels = ["common", "documentation"]
+include_labels = ["shared", "common", "documentation"]
 
 #! Abstractions
 [abstract.gitignore]
@@ -23,15 +23,15 @@ strategy = "none"
 generated_dir = ".vscode/"
 generated_file = "extensions.json"
 override_dir = ".vscode/"
-override_file = "extensions.template.json"
+override_file = "extensions.template.jsonc"
 strategy = "merge_json"
 
 [abstract.vscode-settings]
 generated_dir = ".vscode/"
 generated_file = "settings.json"
 override_dir = ".vscode/"
-override_file = "settings.template.json"
-local_override_file = "settings.local.json"
+override_file = "settings.template.jsonc"
+local_override_file = "settings.local.jsonc"
 back_propagate = true
 backprop_ignore = [
   "explorerExcludeManager.backup",
@@ -181,6 +181,11 @@ strategy = "none"
 labels = ["shell"]
 
 #! HK
+[templates.hk-shared]
+template = "shared/generated.pkl"
+extends = "hk"
+labels = ["shared"]
+
 [templates.hk-common]
 template = "common/hk-common.pkl"
 extends = "hk"
@@ -378,6 +383,11 @@ template = "common/extensions.json"
 extends = "vscode-extensions"
 labels = ["common"]
 
+[templates.vscode-extensions-bazel]
+template = "bazel/extensions.json"
+extends = "vscode-extensions"
+labels = ["bazel"]
+
 [templates.vscode-extensions-cpp]
 template = "cpp/extensions.json"
 extends = "vscode-extensions"
@@ -513,6 +523,11 @@ labels = ["common"]
 template = "apps/template.gitignore"
 extends = "gitignore"
 labels = ["apps"]
+
+[templates.gitignore-bazel]
+template = "bazel/template.gitignore"
+extends = "gitignore"
+labels = ["bazel"]
 
 [templates.gitignore-cpp]
 template = "cpp/template.gitignore"

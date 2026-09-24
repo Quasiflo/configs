@@ -1,7 +1,7 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-fix: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[fix] c++"] {
     glob =
       List(
@@ -14,20 +14,13 @@ fix: Mapping<String, hk.Step> = new {
         "**/*.cxx",
         "**/*.hxx",
       )
-    check = "clang-tidy --config-file=.config/generated/.clang-tidy -p build/ {{ files }}"
-    fix = "clang-tidy --config-file=.config/generated/.clang-tidy -p build/ --fix {{ files }}"
+    check = "clang-tidy --config-file=.clang-tidy -p build/ {{ files }}"
+    fix = "clang-tidy --config-file=.clang-tidy -p build/ --fix {{ files }}"
   }
-}
-
-format: Mapping<String, hk.Step> = new {
   ["[format] c++"] = (version.Builtins.clang_format) {
-    check =
-      "clang-format --style=file:.config/generated/.clang-format --dry-run -Werror {{ files }}"
-    fix = "clang-format --style=file:.config/generated/.clang-format -i {{ files }}"
+    check = "clang-format --style=file:.clang-format --dry-run -Werror {{ files }}"
+    fix = "clang-format --style=file:.clang-format -i {{ files }}"
   }
-}
-
-lint: Mapping<String, hk.Step> = new {
   ["[lint] cppcheck"] {
     types = List("c++")
     check =

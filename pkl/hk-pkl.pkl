@@ -1,10 +1,7 @@
 import "../hk.pkl" as hk
 import "../version.pkl" as version
 
-format: Mapping<String, hk.Step> = new {
+steps = new Mapping<String, hk.Step> {
   ["[format] pkl"] = version.Builtins.pkl_format
-}
-
-lint: Mapping<String, hk.Step> = new {
   ["[lint] pkl"] = version.Builtins.pkl
 }
