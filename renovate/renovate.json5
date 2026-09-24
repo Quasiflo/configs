@@ -15,20 +15,6 @@
     }
   },
   "customManagers": [
-    {
-      "customType": "regex",
-      "datasourceTemplate": "github-releases",
-      "description": "Update pinned renovate presets",
-      "managerFilePatterns": [
-        "**/renovate.json5"
-      ],
-      "matchStrings": [
-        ">(?<packageName>[^/\\s]+/[^/\\s]+)//[^#\\s\"']+#v?(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+[^\"'\\s)]*)"
-      ],
-      "packageNameTemplate": "{{{ packageName }}}",
-      "versioningTemplate": "semver",
-      "extractVersionTemplate": "^v?(?<version>.+)$"
-    },
     { // Update tools defined in mise using a http backend (requires matching custom datasource from above)
       "customType": "jsonata",
       "fileFormat": "toml",
