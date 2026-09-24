@@ -2,11 +2,6 @@ import "../hk.pkl" as hk
 import "../version.pkl" as version
 
 steps = new Mapping<String, hk.Step> {
-  ["[fix] pub"] {
-    glob = List("**/pubspec.yaml", "**/pubspec.yml")
-    check = "dart pub get --dry-run"
-    fix = "dart pub get"
-  }
   ["[fix] dart"] {
     glob = List("**/*.dart", "**/analysis_options.yaml", "**/pubspec.yaml", "**/pubspec.yml")
     check = "dart fix --dry-run"
