@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/Quasiflo/configs/compare/v0.2.1...v0.2.2) (2026-09-24)
+
+
+### Bug Fixes
+
+* ensure renovate updates timestamp-less updates ([825c0fa](https://github.com/Quasiflo/configs/commit/825c0fa721cd152a7620f0cd93ccf85d6377420f))
+
 ## [0.2.1](https://github.com/Quasiflo/configs/compare/v0.2.0...v0.2.1) (2026-09-24)
 
 
