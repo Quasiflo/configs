@@ -2,7 +2,7 @@
 
 [tools]
 #* Main
-"cargo:templatry" = "0.1.0" # Used for generating config files
+"cargo:templatry" = "0.2.0" # Used for generating config files
 #* Linting
 "core:java" = "25.0.2"                 # Used for pkl vscode extension
 "aqua:jdx/hk" = "2.1.0"                # Used for linting, formatting & git hooks

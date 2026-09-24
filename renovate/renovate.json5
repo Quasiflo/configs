@@ -90,7 +90,9 @@
     ":disableRateLimiting",
     ":enableVulnerabilityAlertsWithAdditionalLabel(security)"
   ],
-  "ignorePresets": ["abandonments:recommended"], // Avoid inheriting recommended 1 year abandonment threshold
+  "ignorePresets": [
+    "abandonments:recommended"
+  ], // Avoid inheriting recommended 1 year abandonment threshold
   "hostRules": [
     {
       "matchHost": "circleci.com",
