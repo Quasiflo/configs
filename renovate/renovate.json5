@@ -69,6 +69,7 @@
     }
   ],
   "abandonmentThreshold": "2 years",
+  "minimumReleaseAgeBehaviour": "timestamp-optional", // Required otherwise updates without a timestamp like flutter won't ever update
   "dependencyDashboardOSVVulnerabilitySummary": "all",
   "extends": [
     "config:best-practices",
