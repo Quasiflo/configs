@@ -10,7 +10,7 @@
 "aqua:apple/pkl" = "0.32.1"              # Used for linting & LSP of .pkl config files
 "aqua:mikefarah/yq" = "4.53.6"           # Used for validating & formatting JSON & toml parsing
 "aqua:tombi-toml/tombi" = "1.5.5"        # Used for validating & formatting TOML
-"aqua:rvben/rumdl" = "0.2.74"            # Used for linting & formatting markdown
+"aqua:rvben/rumdl" = "0.2.75"            # Used for linting & formatting markdown
 "aqua:loeffel-io/ls-lint" = "2.3.1"      # Used for enforcing folder & file naming conventions
 "aqua:lycheeverse/lychee" = "0.24.2"     # Used for checking for dead links
 "aqua:koalaman/shellcheck" = "0.11.0"    # Used for checking shell scripts
