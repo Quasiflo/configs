@@ -164,8 +164,23 @@
       "matchPackageNames": [
         "lycheeverse/lychee"
       ]
+    },
+    { // Avoid package incorrect lookup failures for flutter projects
+      "description": "Flutter plugin-loader is provided by the Flutter SDK includeBuild, not Maven",
+      "matchPackageNames": [
+        "dev.flutter.flutter-plugin-loader",
+        "dev.flutter.flutter-plugin-loader:dev.flutter.flutter-plugin-loader.gradle.plugin"
+      ],
+      "matchManagers": ["gradle"],
+      "enabled": false
     }
   ],
   "prCreation": "immediate",
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "logLevelRemap": [
+    { // Avoid warning about packages without release timestamps. This is expected with flutter/dart
+      "matchMessage": "/did not have a releaseTimestamp, but as we're running with minimumReleaseAgeBehaviour=timestamp-optional/",
+      "newLogLevel": "info"
+    }
+  ]
 }
