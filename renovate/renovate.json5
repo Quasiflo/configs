@@ -51,8 +51,7 @@
         '$each(source, function($v, $k) {{"name": $k, "cfg": $v}})[$type(cfg) = "object" and $type(cfg.github) = "string" and $type(cfg.ref) = "string"].{"depName": name, "packageName": cfg.github, "currentValue": cfg.ref}',
       ],
       datasourceTemplate: 'github-releases',
-      versioningTemplate: 'semver',
-      extractVersionTemplate: '^v?(?<version>.+)$',
+      versioningTemplate: 'semver-coerced',
     },
     { // Update dependencies in .pkl files, currently only for HK
       "autoReplaceStringTemplate": "package://github.com/{{{packageName}}}/releases/download/v{{{newValue}}}/{{{depName}}}@{{{newValue}}}#",
