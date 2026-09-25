@@ -38,20 +38,20 @@
       ]
     },
     { // Update Templatry template versions from source releases
-      customType: 'jsonata',
-      description: 'Update templatry github source refs',
-      fileFormat: 'toml',
-      managerFilePatterns: [
+      "customType": 'jsonata',
+      "description": 'Update templatry github source refs',
+      "fileFormat": 'toml',
+      "managerFilePatterns": [
         '**/templatry.toml'
       ],
-      matchStrings: [
+      "matchStrings": [
         // Singular `[source]` table.
         'source[$type(github) = "string" and $type(ref) = "string"].{"depName": github, "packageName": github, "currentValue": ref}',
         // Plural `[source.<name>]` tables.
         '$each(source, function($v, $k) {{"name": $k, "cfg": $v}})[$type(cfg) = "object" and $type(cfg.github) = "string" and $type(cfg.ref) = "string"].{"depName": name, "packageName": cfg.github, "currentValue": cfg.ref}',
       ],
-      datasourceTemplate: 'github-releases',
-      versioningTemplate: 'semver-coerced',
+      "datasourceTemplate": 'github-releases',
+      "versioningTemplate": 'regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$', // Ensures the full tag (with leading v) gets written back
     },
     { // Update dependencies in .pkl files, currently only for HK
       "autoReplaceStringTemplate": "package://github.com/{{{packageName}}}/releases/download/v{{{newValue}}}/{{{depName}}}@{{{newValue}}}#",
@@ -68,7 +68,6 @@
     }
   ],
   "abandonmentThreshold": "2 years",
-  "minimumReleaseAgeBehaviour": "timestamp-optional", // Required otherwise updates without a timestamp like flutter won't ever update
   "dependencyDashboardOSVVulnerabilitySummary": "all",
   "extends": [
     "config:best-practices",
@@ -172,15 +171,14 @@
       ],
       "matchManagers": ["gradle"],
       "enabled": false
+    },
+    {
+      // flutter/dart releases have no discoverable timestamp, so minimumReleaseAge can never resolve to "passed". `flexible` lets a PR still be raised with the latest release. release-age status check stays permanently pending — this blocks automerge but not PR creation (prCreation=immediate).
+      "matchDatasources": ["custom.flutter", "custom.dart"],
+      "internalChecksFilter": "flexible"
     }
   ],
   "prCreation": "immediate",
   "rebaseWhen": "behind-base-branch",
   "reviewersFromCodeOwners": false,
-  "logLevelRemap": [
-    { // Avoid warning about packages without release timestamps. This is expected with flutter/dart
-      "matchMessage": "/did not have a releaseTimestamp, but as we're running with minimumReleaseAgeBehaviour=timestamp-optional/",
-      "newLogLevel": "info"
-    }
-  ]
 }
