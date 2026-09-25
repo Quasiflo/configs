@@ -177,6 +177,7 @@
   ],
   "prCreation": "immediate",
   "rebaseWhen": "behind-base-branch",
+  "reviewersFromCodeOwners": false,
   "logLevelRemap": [
     { // Avoid warning about packages without release timestamps. This is expected with flutter/dart
       "matchMessage": "/did not have a releaseTimestamp, but as we're running with minimumReleaseAgeBehaviour=timestamp-optional/",
