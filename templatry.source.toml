@@ -1,5 +1,5 @@
 [default]
-include_labels = ["shared", "common", "documentation"]
+include_labels = ["shared", "common", "documentation", "security"]
 
 #! Abstractions
 [abstract.gitignore]
@@ -93,6 +93,13 @@ labels = ["license"]
 template = "licenses/license-notice-apache.md"  # HK checks the context of this is in the README
 strategy = "none"
 labels = ["license"]
+
+[templates.security]
+template = "security/SECURITY.md"
+generated_file = "SECURITY.md"
+generated_dir = "."  # SECURITY.md must be at project root for GitHub to surface it
+strategy = "none"
+labels = ["security"]
 
 [templates.jscpd]
 template = "common/.jscpd.json"
