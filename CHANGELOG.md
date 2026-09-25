@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.3](https://github.com/Quasiflo/configs/compare/v0.2.2...v0.2.3) (2026-09-25)
+
+
+### Bug Fixes
+
+* explicitly ignore codeowners for review ([8e28667](https://github.com/Quasiflo/configs/commit/8e286673f104f8a0fd3d5bdbf474e130859f39d2))
+* **renovate:** avoid lookup errors for flutter sdk ([6d47a2b](https://github.com/Quasiflo/configs/commit/6d47a2b69505fb462d4e7b651a177f540e2c8031))
+* **renovate:** avoid warning on missing release timestamps ([6d47a2b](https://github.com/Quasiflo/configs/commit/6d47a2b69505fb462d4e7b651a177f540e2c8031))
+* **renovate:** resolve templatry v prefix stripping ([72eb98f](https://github.com/Quasiflo/configs/commit/72eb98f5ae650da37ede5dae9471ccb540255bae))
+
 ## [0.2.2](https://github.com/Quasiflo/configs/compare/v0.2.1...v0.2.2) (2026-09-24)
 
 
