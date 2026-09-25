@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.4](https://github.com/Quasiflo/configs/compare/v0.2.3...v0.2.4) (2026-09-25)
+
+
+### Bug Fixes
+
+* **renovate:** adjust versioning template for templatry ([0f0c588](https://github.com/Quasiflo/configs/commit/0f0c588927962460b4362aebc236c8b25dd1030c))
+* **renovate:** allow lenient release times only on specific dependencies (dart & flutter) ([0f0c588](https://github.com/Quasiflo/configs/commit/0f0c588927962460b4362aebc236c8b25dd1030c))
+
 ## [0.2.3](https://github.com/Quasiflo/configs/compare/v0.2.2...v0.2.3) (2026-09-25)
 
 
