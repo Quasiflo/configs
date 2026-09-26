@@ -65,6 +65,7 @@
         "**/.git": true,
         "**/.DS_Store": true,
         "**/.cache": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        "**/templatry.manifest.json": true
     }
 }
