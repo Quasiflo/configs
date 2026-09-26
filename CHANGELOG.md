@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/Quasiflo/configs/compare/v0.2.4...v0.3.0) (2026-09-26)
+
+
+### Features
+
+* add security category & markdown document ([9cde7b8](https://github.com/Quasiflo/configs/commit/9cde7b81b50f66e77ad691946e3cfbed8be19b6a))
+
+
+### Bug Fixes
+
+* ignore templatry.manifest.json ([239ec23](https://github.com/Quasiflo/configs/commit/239ec235acc91cb6eadad77eaa808d4209a23228))
+
 ## [0.2.4](https://github.com/Quasiflo/configs/compare/v0.2.3...v0.2.4) (2026-09-25)
 
 
