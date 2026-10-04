@@ -6,6 +6,7 @@ steps = new Mapping<String, hk.Step> {
     exclude = List("pnpm-lock.yaml", "aube-lock.yaml")
     check = "yamlfmt -conf .config/generated/.yamlfmt -lint {{ files }}"
     fix = "yamlfmt -conf .config/generated/.yamlfmt {{ files }}"
+    apply_check_diff = false
   }
   ["[lint] yaml"] = (version.Builtins.yamllint) {
     exclude = List("pnpm-lock.yaml", "aube-lock.yaml")
