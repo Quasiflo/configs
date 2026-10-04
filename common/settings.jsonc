@@ -66,6 +66,7 @@
         "**/.DS_Store": true,
         "**/.cache": true,
         "**/Thumbs.db": true,
-        "**/templatry.manifest.json": true
+        "**/templatry.manifest.json": true,
+        "**/.task": true
     }
 }

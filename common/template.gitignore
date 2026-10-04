@@ -8,6 +8,7 @@
 #! Caches
 .cache/
 .config/templatry.manifest.json
+.task/remote
 
 #! Generated
 .config/generated/
