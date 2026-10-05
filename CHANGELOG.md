@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/Quasiflo/configs/compare/v0.3.0...v0.3.1) (2026-10-05)
+
+
+### Bug Fixes
+
+* ignore remote task caches ([bd7d383](https://github.com/Quasiflo/configs/commit/bd7d383126c06a6ca8b35ec22e19e20a8d053e01))
+
 ## [0.3.0](https://github.com/Quasiflo/configs/compare/v0.2.4...v0.3.0) (2026-10-04)
 
 
